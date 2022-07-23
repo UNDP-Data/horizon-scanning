@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import { Spin } from 'antd';
+import styled, { createGlobalStyle } from 'styled-components';
 import 'antd/dist/antd.css';
+import { Visualization } from './Visualization';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     --primary-blue: #006EB5;
     --blue-medium: #4F95DD;
     --blue-bg: #94C4F5;
+    --blue-100: #B5D5F5;
     --navy: #082753;
     --black-100: #FAFAFA;
     --black-200: #f5f9fe;
@@ -127,41 +128,93 @@ const GlobalStyle = createGlobalStyle`
     display: none !important;
   }
 
-  .ant-select-item-option-content {
-    white-space: normal;
+  .ant-modal-header{
+    display: none;
   }
 
-  .ant-select-selector {
-    border-radius: 0.5rem !important;
-    background-color: var(--black-200) !important;
+  .select-box {
+    width: 100%;
+    border: 2px solid #000;
+    height: 5.2rem;
   }
-  .ant-slider-mark-text {
-    font-size: 1rem !important;
-    display: none;
-    &:first-of-type {
-      display: inline;
-    }
-    &:last-of-type {
-      display: inline;
-    }
+
+  .ant-select-selector{
+    height: 4.8rem !important;
+    border: 0 !important;
   }
-  .ant-slider-tooltip{
-    padding: 0 !important;
+
+  .ant-select-selection-search-input {
+    height: 4.8rem !important;
   }
-  .ant-tooltip-inner{
-    font-size: 1.4rem !important;
-    background-color: var(--black-550) !important;
-    border-radius: 0.4rem;
+
+  .select-box .ant-select-selection-placeholder {
+    padding-top: 1rem !important;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: black;
   }
-  .ant-tooltip-arrow-content{
-    background-color: var(--black-550) !important;
+
+  .select-box::after {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transition: translateY(-50%);
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    background: url(https://design.undp.org/static/media/chevron-down.16c97a3f.svg) no-repeat center center;
+    content: "";
+    float: right;
+    height: 13px;
+    position: absolute;
+    pointer-events: none;
+    right: 14px;
+    top: 50%;
+    width: 20px;
   }
+
+  .select-box .ant-select-selection-item {
+    padding-top: 1rem !important;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  .ant-select-arrow {
+    opacity: 0;
+  }
+
+  .ant-select-item-option {
+    font-size: 1.6rem;
+    border-top: 1px solid #d4d6d8;
+    line-height: 4.4rem;
+  }
+`;
+
+const Container = styled.div`
+  width: 100%;
+  max-width: 128rem;
+  margin: auto;
+`;
+
+const H1 = styled.h1`
+  margin: 3rem 0;
+  font-size: 3.6rem;
 `;
 
 const App = () => (
   <>
     <GlobalStyle />
-    <Spin size='large' />
+    <Container>
+      <H1>
+        Horizon Scanning
+      </H1>
+    </Container>
+    <Visualization />
   </>
 );
 
