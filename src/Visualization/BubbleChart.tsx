@@ -102,7 +102,7 @@ export const BubbleChart = (props: Props) => {
   const radius = 10;
 
   const xScale = scaleLinear()
-    .domain([2, 4.5])
+    .domain([2, 5])
     .range([25, graphWidth - 25]);
 
   useEffect(() => {
@@ -121,12 +121,34 @@ export const BubbleChart = (props: Props) => {
           finalData ? (
             <>
               <svg width='100%' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
+
+                <text
+                  x={0}
+                  y={0}
+                  dy={10}
+                  dx={0}
+                  fill='#222'
+                  fontSize={14}
+                >
+                  ← Low Risk
+                </text>
+                <text
+                  x={graphWidth}
+                  y={0}
+                  dy={10}
+                  dx={0}
+                  fill='#222'
+                  textAnchor='end'
+                  fontSize={14}
+                >
+                  High Risk →
+                </text>
                 {
-                  [2, 3, 4].map((d, i) => (
+                  [2, 3, 4, 5].map((d, i) => (
                     <g key={i} transform={`translate(${xScale(d)}, 0)`}>
                       <line
                         x1={0}
-                        y1={0}
+                        y1={30}
                         x2={0}
                         y2={graphHeight}
                         stroke='#AAA'
@@ -136,7 +158,7 @@ export const BubbleChart = (props: Props) => {
                       />
                       <text
                         x={0}
-                        y={0}
+                        y={30}
                         dy={10}
                         dx={5}
                         fill='#222'
