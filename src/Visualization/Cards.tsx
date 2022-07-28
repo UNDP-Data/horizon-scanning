@@ -1,3 +1,5 @@
+// import uniq from 'lodash.uniq';
+import uniq from 'lodash.uniq';
 import styled from 'styled-components';
 import { COLORVALUES, SDGCOLOR, STEEPVCOLOR } from '../Constants';
 import { SignalDataType } from '../Types';
@@ -7,7 +9,6 @@ interface Props {
 }
 
 const DivValuesEl = styled.div`
-  display: flex;
   margin-bottom: 1rem;
   flex-wrap: wrap;
   align-items: center;
@@ -27,6 +28,10 @@ const TooltipTitle = styled.div`
 const TooltipBody = styled.div`
   width: 100%;
   box-sizing: border-box;
+`;
+
+const CardContainer = styled.div`
+  margin: 0 1rem;
 `;
 
 interface ChipElDataType {
@@ -72,7 +77,7 @@ const ValueSpan = styled.div`
   background-color: #efdbff;
   color: #391085;
   text-align: center;
-  margin-left: 0.5rem;
+  width: fit-content;
   padding: 0 1rem;
   align-items: center;
   display: flex;
@@ -84,72 +89,56 @@ export const Cards = (props: Props) => {
   const {
     data,
   } = props;
+  // const SteepVList = data.fields['STEEP+V (multiple)'] ? [...data.fields['STEEP+V (multiple)']].push(data.fields['STEEP+V (Single)']) : [data.fields['STEEP+V (Single)']];
+  const SteepVList = [data.fields['STEEP+V (Single)']];
+  data.fields['STEEP+V (multiple)']?.forEach((d) => { SteepVList.push(d); });
+  const SteepVUniq = uniq(SteepVList);
   return (
-    <>
+    <CardContainer>
       <div>
         <TooltipTitle>
           {data.fields['Signal Title (New)']}
         </TooltipTitle>
         <FlexEl>
-          <ChipEl
-            bgColor={data.fields['STEEP+V (Single)'] ? STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === data.fields['STEEP+V (Single)'])].bgColor : '#eaeaea'}
-            fontColor={data.fields['STEEP+V (Single)'] ? STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === data.fields['STEEP+V (Single)'])].textColor : '#000'}
-          >
-            {data.fields['STEEP+V (Single)']}
-          </ChipEl>
-          <ChipEl
-            bgColor={data.fields.Horizon ? COLORVALUES[data.fields.Horizon] : '#AAA'}
-            fontColor='var(--black)'
-          >
-            {data.fields.Horizon ? data.fields.Horizon : 'Horizon NA'}
-          </ChipEl>
+          {
+            SteepVUniq.map((d, i) => (
+              <ChipEl
+                key={i}
+                bgColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
+                fontColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
+              >
+                {d}
+              </ChipEl>
+            ))
+          }
+          {
+            data.fields['Key themes']
+              ? (
+                <>
+                  {
+                    data.fields['Key themes']?.map((d, i) => (
+                      <ChipEl key={i} bgColor='#EAEAEA'>
+                        {d}
+                      </ChipEl>
+                    ))
+                  }
+                </>
+              )
+              : null
+          }
         </FlexEl>
       </div>
       <TooltipBody>
         <HR />
-        <ModalTitleEl>STEEP+V</ModalTitleEl>
+        <ModalTitleEl>Horizon</ModalTitleEl>
         <ModalBodyEl>
           <FlexEl>
-            {
-              data.fields['STEEP+V (multiple)']
-                ? (
-                  <>
-                    {
-                      data.fields['STEEP+V (multiple)']?.map((d, i) => (
-                        <ChipEl
-                          key={i}
-                          bgColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
-                          fontColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
-                        >
-                          {d}
-                        </ChipEl>
-                      ))
-                    }
-                  </>
-                )
-                : 'NA'
-            }
-          </FlexEl>
-        </ModalBodyEl>
-        <HR />
-        <ModalTitleEl>Key Themes</ModalTitleEl>
-        <ModalBodyEl>
-          <FlexEl>
-            {
-              data.fields['Key themes']
-                ? (
-                  <>
-                    {
-                      data.fields['Key themes']?.map((d, i) => (
-                        <ChipEl key={i} bgColor='#EAEAEA'>
-                          {d}
-                        </ChipEl>
-                      ))
-                    }
-                  </>
-                )
-                : 'NA'
-            }
+            <ChipEl
+              bgColor={data.fields.Horizon ? COLORVALUES[data.fields.Horizon] : '#AAA'}
+              fontColor='var(--black)'
+            >
+              {data.fields.Horizon ? data.fields.Horizon : 'Horizon NA'}
+            </ChipEl>
           </FlexEl>
         </ModalBodyEl>
         <HR />
@@ -180,23 +169,15 @@ export const Cards = (props: Props) => {
         <HR />
         <DivValuesEl>
           <div className='bold'>
-            Likelihood
+            Risk Score (Average):
           </div>
-          <ValueSpan className='bold'>{data.fields.Likelihood}</ValueSpan>
-        </DivValuesEl>
-        <DivValuesEl>
-          <div className='bold'>
-            Impact
-          </div>
-          <ValueSpan className='bold'>{data.fields.Impact}</ValueSpan>
-        </DivValuesEl>
-        <DivValuesEl>
-          <div className='bold'>
-            Risk Score (Average)
-          </div>
-          <ValueSpan className='bold'>{data.fields['Survey Risk (Average)']?.toFixed(1)}</ValueSpan>
+          <ValueSpan className='bold'>
+            {
+              data.fields['Survey Risk (Average)'] ? data.fields['Survey Risk (Average)']?.toFixed(1) : 'NA'
+            }
+          </ValueSpan>
         </DivValuesEl>
       </TooltipBody>
-    </>
+    </CardContainer>
   );
 };

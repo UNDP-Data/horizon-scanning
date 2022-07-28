@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 import { Select } from 'antd';
 import { useState } from 'react';
+import flattenDeep from 'lodash.flattendeep';
+import sortedUniq from 'lodash.sorteduniq';
+import uniq from 'lodash.uniq';
 import { SDGCOLOR, STEEPVCOLOR } from '../Constants';
 import { CardLayout } from './CardLayout';
 import { BubbleChart } from './BubbleChart';
+import Data from '../data.json';
 
 const SettingsEl = styled.div`
   display: flex;
@@ -16,12 +20,13 @@ const SettingsEl = styled.div`
 const VizEl = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
   max-width: 128rem;
   margin: auto;
 `;
 
 const SelectionEl = styled.div`
-  width: calc(50% - 17rem);
+  width: calc(30% - 17rem);
   font-size: 1.4rem;
 `;
 
@@ -49,7 +54,11 @@ const ToggleEl = styled.div<ToggleDataType>`
 export const Visualization = () => {
   const [filteredSteep, setFilteredSteep] = useState<string>('All STEEP+V');
   const [filteredSDG, setFilteredSDG] = useState<string>('All SDGs');
+  const [filteredHorizon, setFilteredHorizon] = useState<string>('All Horizons');
+  const [filteredTheme, setFilteredTheme] = useState<string>('All Themes');
   const [chartType, setChartType] = useState<'Bubble Chart' | 'Card View'>('Bubble Chart');
+  const HORIZONLIST = sortedUniq(uniq(Data.map((d) => d.fields.Horizon))).filter((d) => d !== undefined);
+  const THEMELIST = sortedUniq(flattenDeep(Data.map((d) => d.fields['Key themes']))).filter((d) => d !== undefined);
   return (
     <>
       <SettingsEl>
@@ -81,6 +90,35 @@ export const Visualization = () => {
             }
           </Select>
         </SelectionEl>
+        <SelectionEl>
+          <Select
+            className='select-box'
+            style={{ width: '100%' }}
+            placeholder='Please select'
+            showSearch
+            defaultValue='All Themes'
+            onChange={(values) => { setFilteredTheme(values); }}
+          >
+            <Select.Option key='All Themes'>All Themes</Select.Option>
+            {
+              THEMELIST.map((d, i) => <Select.Option key={`${d}__${i}`}>{d}</Select.Option>)
+            }
+          </Select>
+        </SelectionEl>
+        <SelectionEl>
+          <Select
+            className='select-box'
+            style={{ width: '100%' }}
+            placeholder='Please select'
+            defaultValue='All Horizons'
+            onChange={(values) => { setFilteredHorizon(values); }}
+          >
+            <Select.Option key='All Horizons'>All Horizons</Select.Option>
+            {
+              HORIZONLIST.map((d) => <Select.Option key={`${d}`}>{d}</Select.Option>)
+            }
+          </Select>
+        </SelectionEl>
         <ToggleContainer>
           <ToggleEl selected={chartType === 'Bubble Chart'} onClick={() => { setChartType('Bubble Chart'); }}>Bubble Chart</ToggleEl>
           <ToggleEl selected={chartType === 'Card View'} onClick={() => { setChartType('Card View'); }}>Card View</ToggleEl>
@@ -93,12 +131,16 @@ export const Visualization = () => {
               <CardLayout
                 filteredSDG={filteredSDG}
                 filteredSteep={filteredSteep}
+                filteredHorizon={filteredHorizon}
+                filteredTheme={filteredTheme}
               />
             )
             : (
               <BubbleChart
                 filteredSDG={filteredSDG}
                 filteredSteep={filteredSteep}
+                filteredHorizon={filteredHorizon}
+                filteredTheme={filteredTheme}
               />
             )
         }

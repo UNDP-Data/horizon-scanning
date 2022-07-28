@@ -11,12 +11,16 @@ import { Cards } from './Cards';
 interface Props {
   filteredSDG: string;
   filteredSteep: string;
+  filteredHorizon: string;
+  filteredTheme: string;
 }
 
 const FlexContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: calc(100% + 2rem);
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -1rem;
 `;
 
 const SignalTitleEl = styled.div`
@@ -62,7 +66,6 @@ const FlexEl = styled.div`
 `;
 
 const DivValuesEl = styled.div`
-  display: flex;
   margin-bottom: 1rem;
   flex-wrap: wrap;
   align-items: center;
@@ -74,10 +77,10 @@ const HR = styled.hr`
 `;
 
 const ValueSpan = styled.div`
+  width: fit-content;
   background-color: #efdbff;
+  display: flex;
   color: #391085;
-  text-align: center;
-  margin-left: 0.5rem;
   padding: 0 1rem;
   align-items: center;
   display: flex;
@@ -93,8 +96,8 @@ const CardEl = styled.div`
   box-shadow: 0 0 1rem rgb(0 0 0 / 5%);
   border: 1px solid var(--black-300);
   word-wrap: break-word;
-  margin-bottom: 2rem;
-  width: calc(33.33% - 1.5rem);
+  margin: 0 1rem 2rem 1rem;
+  width: calc(33.33% - 2rem);
   cursor: pointer;
 `;
 
@@ -102,15 +105,19 @@ export const CardLayout = (props: Props) => {
   const {
     filteredSDG,
     filteredSteep,
+    filteredHorizon,
+    filteredTheme,
   } = props;
   const [mouseClickData, setMouseClickData] = useState<SignalDataType | null>(null);
   const DataFilterBySDG = filteredSDG === 'All SDGs' ? [...Data] : Data.filter((d) => d.fields.SDGs && d.fields.SDGs?.indexOf(filteredSDG) !== -1);
   const DataFilterBySteep = filteredSteep === 'All STEEP+V' ? [...DataFilterBySDG] : DataFilterBySDG.filter((d) => (d.fields['STEEP+V (Single)'] || d.fields['STEEP+V (multiple)']) && (d.fields['STEEP+V (multiple)']?.indexOf(filteredSteep) !== -1 || d.fields['STEEP+V (Single)'] === filteredSteep));
+  const DataFilterByHorizon = filteredHorizon === 'All Horizons' ? [...DataFilterBySteep] : DataFilterBySteep.filter((d) => (d.fields.Horizon === filteredHorizon));
+  const DataFilterByTheme = filteredTheme === 'All Themes' ? [...DataFilterByHorizon] : DataFilterByHorizon.filter((d) => (d.fields['Key themes'] && d.fields['Key themes']?.indexOf(filteredTheme.split('__')[0]) !== -1));
   return (
     <>
       <FlexContainer>
         {
-          DataFilterBySteep.map((d, i) => <CardEl onClick={() => { setMouseClickData(d as SignalDataType); }}><Cards data={d as SignalDataType} key={i} /></CardEl>)
+          DataFilterByTheme.map((d, i) => <CardEl onClick={() => { setMouseClickData(d as SignalDataType); }}><Cards data={d as SignalDataType} key={i} /></CardEl>)
         }
       </FlexContainer>
       {
@@ -125,66 +132,52 @@ export const CardLayout = (props: Props) => {
             <SignalTitleEl>{mouseClickData.fields['Signal Title (New)']}</SignalTitleEl>
             <FlexEl>
               <ChipEl
-                bgColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].bgColor}
-                fontColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].textColor}
+                bgColor={STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)']) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].bgColor}
+                fontColor={STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)']) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].textColor}
               >
                 {mouseClickData.fields['STEEP+V (Single)']}
               </ChipEl>
-              <ChipEl
-                bgColor={mouseClickData.fields.Horizon ? COLORVALUES[mouseClickData.fields.Horizon] : '#AAA'}
-                fontColor='var(--black)'
-              >
-                {mouseClickData.fields.Horizon ? mouseClickData.fields.Horizon : 'Horizon NA'}
-              </ChipEl>
-            </FlexEl>
-            <ModalBodyEl>
-              {mouseClickData.fields['Signal Description']}
-            </ModalBodyEl>
-            <HR />
-            <ModalTitleEl>STEEP+V</ModalTitleEl>
-            <ModalBodyEl>
-              <FlexEl>
-                {
-                  mouseClickData.fields['STEEP+V (multiple)']
-                    ? (
-                      <>
-                        {
-                          mouseClickData.fields['STEEP+V (multiple)']?.map((d, i) => (
-                            <ChipEl
-                              key={i}
-                              bgColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
-                              fontColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
-                            >
-                              {d}
-                            </ChipEl>
-                          ))
-                        }
-                      </>
-                    )
-                    : 'NA'
-                }
-              </FlexEl>
-            </ModalBodyEl>
-            <HR />
-            <ModalTitleEl>Key Themes</ModalTitleEl>
-            <ModalBodyEl>
-              <FlexEl>
-                {
-                  mouseClickData.fields['Key themes']
-                    ? (
-                      <>
-                        {
+              {
+                mouseClickData.fields['STEEP+V (multiple)']?.map((d, i) => (d === mouseClickData.fields['STEEP+V (Single)'] ? null
+                  : (
+                    <ChipEl
+                      key={i}
+                      bgColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
+                      fontColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
+                    >
+                      {d}
+                    </ChipEl>
+                  )))
+              }
+              {
+                mouseClickData.fields['Key themes']
+                  ? (
+                    <>
+                      {
                         mouseClickData.fields['Key themes']?.map((d, i) => (
                           <ChipEl key={i} bgColor='#EAEAEA'>
                             {d}
                           </ChipEl>
                         ))
                       }
-                      </>
-                    )
-                    : 'NA'
-                }
-              </FlexEl>
+                    </>
+                  )
+                  : null
+              }
+            </FlexEl>
+            <ModalBodyEl>
+              {mouseClickData.fields['Signal Description']}
+            </ModalBodyEl>
+            <HR />
+            <ModalTitleEl>Horizon</ModalTitleEl>
+            <ModalBodyEl>
+              <ChipEl
+                style={{ width: 'fit-content' }}
+                bgColor={mouseClickData.fields.Horizon ? COLORVALUES[mouseClickData.fields.Horizon] : '#AAA'}
+                fontColor='var(--black)'
+              >
+                {mouseClickData.fields.Horizon ? mouseClickData.fields.Horizon : 'Horizon NA'}
+              </ChipEl>
             </ModalBodyEl>
             <HR />
             <ModalTitleEl>SDGs</ModalTitleEl>
@@ -217,56 +210,31 @@ export const CardLayout = (props: Props) => {
               {mouseClickData.fields['Impact/ Relevance UNDP']}
             </ModalBodyEl>
             <HR />
-            <ModalTitleEl>BRH/CO</ModalTitleEl>
-            <ModalBodyEl className='bold'>
-              {mouseClickData.fields['BRH/ CO']}
-            </ModalBodyEl>
-            <HR />
-            <ModalTitleEl>Regional Impact</ModalTitleEl>
             <ModalBodyEl>
-              <FlexEl>
-                {
-                  mouseClickData.fields['Regional impact?']
-                    ? (
-                      <ChipEl bgColor={mouseClickData.fields['Regional impact?'][0] === 'Yes' ? 'var(--primary-blue)' : 'var(--red)'} fontColor='var(--white)'>
-                        {mouseClickData.fields['Regional impact?'][0]}
-                      </ChipEl>
-                    )
-                    : 'NA'
-                }
-              </FlexEl>
-            </ModalBodyEl>
-            <HR />
-            <ModalBodyEl>
-              <DivValuesEl>
-                <div className='bold'>
-                  Likelihood
-                </div>
-                <ValueSpan className='bold'>{mouseClickData.fields.Likelihood}</ValueSpan>
-              </DivValuesEl>
-              <DivValuesEl>
-                <div className='bold'>
-                  Impact
-                </div>
-                <ValueSpan className='bold'>{mouseClickData.fields.Impact}</ValueSpan>
-              </DivValuesEl>
               <DivValuesEl>
                 <div className='bold'>
                   Risk Score (Average)
                 </div>
-                <ValueSpan className='bold'>{mouseClickData.fields['Survey Risk (Average)']?.toFixed(1)}</ValueSpan>
+                <ValueSpan className='bold'>{mouseClickData.fields['Survey Risk (Average)'] ? mouseClickData.fields['Survey Risk (Average)'].toFixed(1) : 'NA'}</ValueSpan>
               </DivValuesEl>
             </ModalBodyEl>
             <HR />
             <ModalTitleEl>Sources</ModalTitleEl>
             <ModalBodyEl>
               {
-                mouseClickData.fields.Sources?.split('\n').map((d, i) => (
-                  <div key={i}>
-                    <a href={d} target='_blank' rel='noreferrer'>{d}</a>
-                  </div>
-                ))
-              }
+                        mouseClickData.fields.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? 'No Sources Avaailable'
+                          : (
+                            <ul>
+                              {
+                                mouseClickData.fields.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                                  <li key={i}>
+                                    <a href={d} target='_blank' rel='noreferrer'>{d}</a>
+                                  </li>
+                                ))
+                              }
+                            </ul>
+                          )
+                      }
             </ModalBodyEl>
           </Modal>
         )

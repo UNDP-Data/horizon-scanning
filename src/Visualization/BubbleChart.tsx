@@ -13,6 +13,8 @@ import { Tooltip } from './tooltip';
 interface Props {
   filteredSDG: string;
   filteredSteep: string;
+  filteredHorizon: string;
+  filteredTheme: string;
 }
 
 const VizEl = styled.div`
@@ -89,27 +91,31 @@ const ValueSpan = styled.div`
   justify-content: center;
 `;
 
+const HORIZONLIST = ['2022-2023', '2024-2025', '2026-2030'];
+
 export const BubbleChart = (props: Props) => {
   const {
     filteredSDG,
     filteredSteep,
+    filteredHorizon,
+    filteredTheme,
   } = props;
   const [finalData, setFinalData] = useState<SignalDataTypeForBubbleChart[] | null>(null);
   const [mouseOverData, setMouseOverData] = useState<MouseOverDataType | null>(null);
   const [mouseClickData, setMouseClickData] = useState<SignalDataTypeForBubbleChart | null>(null);
   const graphWidth = 1280;
-  const graphHeight = 400;
+  const graphHeight = 800;
   const radius = 10;
 
   const xScale = scaleLinear()
     .domain([2, 5])
-    .range([25, graphWidth - 25]);
+    .range([50, graphWidth - 25]);
 
   useEffect(() => {
-    const dataTemp = (Data as SignalDataType[]).filter((d) => d.fields['Survey Risk (Average)']);
+    const dataTemp = (Data as SignalDataType[]).filter((d) => d.fields['Survey Risk (Average)'] && d.fields.Horizon);
     forceSimulation(dataTemp as any)
       .force('x', forceX((d: any) => xScale(d.fields['Survey Risk (Average)'])).strength(5))
-      .force('y', forceY(graphHeight / 2).strength(1))
+      .force('y', forceY((d: any) => (HORIZONLIST.indexOf(d.fields.Horizon) + 1) * (graphHeight / 4)).strength(1))
       .force('collide', forceCollide(() => radius + 2))
       .force('charge', forceManyBody().strength(-15))
       .on('end ', () => { setFinalData(dataTemp as SignalDataTypeForBubbleChart[]); });
@@ -120,10 +126,10 @@ export const BubbleChart = (props: Props) => {
         {
           finalData ? (
             <>
-              <svg width='100%' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
+              <svg width='100%' viewBox={`0 0 ${graphWidth} ${graphHeight - 50}`}>
 
                 <text
-                  x={0}
+                  x={50}
                   y={0}
                   dy={10}
                   dx={0}
@@ -169,6 +175,46 @@ export const BubbleChart = (props: Props) => {
                     </g>
                   ))
                 }
+
+                <text
+                  x={0}
+                  y={0}
+                  dy={25}
+                  dx={0}
+                  fill='#001A5D'
+                  textAnchor='middle'
+                  transform={`translate(0,${graphHeight / 4}) rotate(-90)`}
+                  fontSize={20}
+                  fontWeight='bold'
+                >
+                  2022 - 2023
+                </text>
+                <text
+                  x={0}
+                  y={0}
+                  dy={25}
+                  dx={0}
+                  fill='#001A5D'
+                  textAnchor='middle'
+                  transform={`translate(0,${graphHeight / 2}) rotate(-90)`}
+                  fontSize={20}
+                  fontWeight='bold'
+                >
+                  2024 - 2025
+                </text>
+                <text
+                  x={0}
+                  y={0}
+                  dy={25}
+                  dx={0}
+                  fill='#001A5D'
+                  textAnchor='middle'
+                  transform={`translate(0,${graphHeight * 0.75}) rotate(-90)`}
+                  fontSize={20}
+                  fontWeight='bold'
+                >
+                  2026 - 2030
+                </text>
                 {
                   finalData.map((d, i) => {
                     const opacitySteep = filteredSteep !== 'All STEEP+V'
@@ -181,20 +227,30 @@ export const BubbleChart = (props: Props) => {
                         ? 1
                         : 0.15
                       : 1;
+                    const opacityTheme = filteredTheme !== 'All Themes'
+                      ? d.fields['Key themes'] && d.fields['Key themes']?.indexOf(filteredTheme.split('__')[0]) !== -1
+                        ? 1
+                        : 0.15
+                      : 1;
+                    const opacityHorizon = filteredHorizon !== 'All Horizons'
+                      ? d.fields.Horizon === filteredHorizon
+                        ? 1
+                        : 0.15
+                      : 1;
                     return (
                       <circle
                         key={i}
                         cx={d.x}
                         cy={d.y}
                         r={radius}
-                        fill={d.fields.Horizon ? COLORVALUES[d.fields.Horizon] : '#AAA'}
-                        stroke={d.fields.Horizon ? COLORVALUES[d.fields.Horizon] : '#AAA'}
+                        fill='#001A5D'
+                        stroke='#001A5D'
                         opacity={
                           mouseOverData
                             ? d.fields['Signal Title (New)'] === mouseOverData.fields['Signal Title (New)']
                               ? 1
                               : 0.15
-                            : Math.min(opacitySDG, opacitySteep)
+                            : Math.min(opacitySDG, opacitySteep, opacityTheme, opacityHorizon)
                         }
                         fillOpacity={0.8}
                         strokeWidth={1}
@@ -228,66 +284,52 @@ export const BubbleChart = (props: Props) => {
                     <SignalTitleEl>{mouseClickData.fields['Signal Title (New)']}</SignalTitleEl>
                     <FlexEl>
                       <ChipEl
-                        bgColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].bgColor}
-                        fontColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].textColor}
+                        bgColor={STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)']) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].bgColor}
+                        fontColor={STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)']) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === mouseClickData.fields['STEEP+V (Single)'])].textColor}
                       >
                         {mouseClickData.fields['STEEP+V (Single)']}
                       </ChipEl>
-                      <ChipEl
-                        bgColor={mouseClickData.fields.Horizon ? COLORVALUES[mouseClickData.fields.Horizon] : '#AAA'}
-                        fontColor='var(--black)'
-                      >
-                        {mouseClickData.fields.Horizon ? mouseClickData.fields.Horizon : 'Horizon NA'}
-                      </ChipEl>
-                    </FlexEl>
-                    <ModalBodyEl>
-                      {mouseClickData.fields['Signal Description']}
-                    </ModalBodyEl>
-                    <HR />
-                    <ModalTitleEl>STEEP+V</ModalTitleEl>
-                    <ModalBodyEl>
-                      <FlexEl>
-                        {
-                          mouseClickData.fields['STEEP+V (multiple)']
-                            ? (
-                              <>
-                                {
-                                  mouseClickData.fields['STEEP+V (multiple)']?.map((d, i) => (
-                                    <ChipEl
-                                      key={i}
-                                      bgColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
-                                      fontColor={STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
-                                    >
-                                      {d}
-                                    </ChipEl>
-                                  ))
-                                }
-                              </>
-                            )
-                            : 'NA'
-                        }
-                      </FlexEl>
-                    </ModalBodyEl>
-                    <HR />
-                    <ModalTitleEl>Key Themes</ModalTitleEl>
-                    <ModalBodyEl>
-                      <FlexEl>
-                        {
-                          mouseClickData.fields['Key themes']
-                            ? (
-                              <>
-                                {
+                      {
+                        mouseClickData.fields['STEEP+V (multiple)']?.map((d, i) => (d === mouseClickData.fields['STEEP+V (Single)'] ? null
+                          : (
+                            <ChipEl
+                              key={i}
+                              bgColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
+                              fontColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
+                            >
+                              {d}
+                            </ChipEl>
+                          )))
+                      }
+                      {
+                        mouseClickData.fields['Key themes']
+                          ? (
+                            <>
+                              {
                                 mouseClickData.fields['Key themes']?.map((d, i) => (
                                   <ChipEl key={i} bgColor='#EAEAEA'>
                                     {d}
                                   </ChipEl>
                                 ))
                               }
-                              </>
-                            )
-                            : 'NA'
-                        }
-                      </FlexEl>
+                            </>
+                          )
+                          : null
+                      }
+                    </FlexEl>
+                    <ModalBodyEl>
+                      {mouseClickData.fields['Signal Description']}
+                    </ModalBodyEl>
+                    <HR />
+                    <ModalTitleEl>Horizon</ModalTitleEl>
+                    <ModalBodyEl>
+                      <ChipEl
+                        style={{ width: 'fit-content' }}
+                        bgColor={mouseClickData.fields.Horizon ? COLORVALUES[mouseClickData.fields.Horizon] : '#AAA'}
+                        fontColor='var(--black)'
+                      >
+                        {mouseClickData.fields.Horizon ? mouseClickData.fields.Horizon : 'Horizon NA'}
+                      </ChipEl>
                     </ModalBodyEl>
                     <HR />
                     <ModalTitleEl>SDGs</ModalTitleEl>
@@ -320,55 +362,30 @@ export const BubbleChart = (props: Props) => {
                       {mouseClickData.fields['Impact/ Relevance UNDP']}
                     </ModalBodyEl>
                     <HR />
-                    <ModalTitleEl>BRH/CO</ModalTitleEl>
-                    <ModalBodyEl className='bold'>
-                      {mouseClickData.fields['BRH/ CO']}
-                    </ModalBodyEl>
-                    <HR />
-                    <ModalTitleEl>Regional Impact</ModalTitleEl>
                     <ModalBodyEl>
-                      <FlexEl>
-                        {
-                          mouseClickData.fields['Regional impact?']
-                            ? (
-                              <ChipEl bgColor={mouseClickData.fields['Regional impact?'][0] === 'Yes' ? 'var(--primary-blue)' : 'var(--red)'} fontColor='var(--white)'>
-                                {mouseClickData.fields['Regional impact?'][0]}
-                              </ChipEl>
-                            )
-                            : 'NA'
-                        }
-                      </FlexEl>
-                    </ModalBodyEl>
-                    <HR />
-                    <ModalBodyEl>
-                      <DivValuesEl>
-                        <div className='bold'>
-                          Likelihood
-                        </div>
-                        <ValueSpan className='bold'>{mouseClickData.fields.Likelihood}</ValueSpan>
-                      </DivValuesEl>
-                      <DivValuesEl>
-                        <div className='bold'>
-                          Impact
-                        </div>
-                        <ValueSpan className='bold'>{mouseClickData.fields.Impact}</ValueSpan>
-                      </DivValuesEl>
                       <DivValuesEl>
                         <div className='bold'>
                           Risk Score (Average)
                         </div>
-                        <ValueSpan className='bold'>{mouseClickData.fields['Survey Risk (Average)']?.toFixed(1)}</ValueSpan>
+                        <ValueSpan className='bold'>{mouseClickData.fields['Survey Risk (Average)'] ? mouseClickData.fields['Survey Risk (Average)'].toFixed(1) : 'NA'}</ValueSpan>
                       </DivValuesEl>
                     </ModalBodyEl>
                     <HR />
                     <ModalTitleEl>Sources</ModalTitleEl>
                     <ModalBodyEl>
                       {
-                        mouseClickData.fields.Sources?.split('\n').map((d, i) => (
-                          <div key={i}>
-                            <a href={d} target='_blank' rel='noreferrer'>{d}</a>
-                          </div>
-                        ))
+                        mouseClickData.fields.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? 'No Sources Avaailable'
+                          : (
+                            <ul>
+                              {
+                                mouseClickData.fields.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                                  <li key={i}>
+                                    <a href={d} target='_blank' rel='noreferrer'>{d}</a>
+                                  </li>
+                                ))
+                              }
+                            </ul>
+                          )
                       }
                     </ModalBodyEl>
                   </Modal>
