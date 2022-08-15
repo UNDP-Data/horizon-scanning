@@ -1,0 +1,798 @@
+[
+  {
+  "importanceArray": [ 5,  5, 4, 4, 3, 4, 3, 4, 4, 3, 4,  5,  5,  5, 4, 3, 4, 4,  5, 3, 4,  5,  5,  5, 3, 3, 4, 4, 2, 5,4],
+  "Signal": "Educational inequality"
+  },
+  {
+  "importanceArray": [4, 4, 3, 3, 3, 3, 4, 2, 3, 2, 4,  5, 4, 4, 4, 3,  5, 4,  5, 2, 4, 4, 2, 3, 4,  5, 3, 4, 2,4,3],
+  "Signal": "Online curricula changing to promote soft skills, flexibility, and digital literacy"
+  },
+  {
+  "importanceArray": [4,  5, 4, 4,  5, 4,  5, 4, 4,  5, 4,  5,  5,  5,  5,  5, 4, 4,  5,  5,  5, 3, 4, 4, 3,  5, 2,  5, 4, 5,4],
+  "Signal": "Youth concerned about future education and employment opportunities"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4, 4, 4, 2, 4, 3,  5, 3, 4,  5, 4,  5, 3, 4, 4, 3, 4, 4, 4, 2,  5,  5, 4, 2, 4, 4,4,4],
+  "Signal": "Climate-induced displacement disrupts education"
+  },
+  {
+  "importanceArray": [3, 3, 4, 2, 3, 3, 4, 3, 4,  5, 4,  5,  5, 2,  5, 3, 3, 4, 2,  5,  5, 3,  1, 4, 3,  5, 3,  5, 2,4,3],
+  "Signal": "Push for school internet connectivity through satellite connection (VSAT) in rural areas"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4,  5, 4,  5, 3, 3, 4, 4,  5, 4,  5,  5, 4, 3, 4,  5, 4,  5, 3, 3, 4, 4,  5, 4,  5, 2, 5,3],
+  "Signal": "High rates of unemployment among recent university graduates due to skills mismatch between education and employment requirements"
+  },
+  {
+  "importanceArray": [3, 4, 3, 2, 3, 3, 2, 3,  5, 4, 4, 4, 4, 3, 4, 3, 3, 3, 2, 2,  5, 3, 3, 4, 3, 3, 4,  5, 3,3,3],
+  "Signal": "Ongoing work to reverse school dropout trends"
+  },
+  {
+  "importanceArray": [ 5,  5, 3, 3, 3, 4,  5, 3, 4,  5, 4,  5, 4, 4,  5, 4, 3, 4, 3, 4, 4, 3, 4,  5, 2, 4, 3, 4, 2,4,3],
+  "Signal": "School closures disrupt life transitions for adolescents (beyond educational attainment)"
+  },
+  {
+  "importanceArray": [4, 3, 3, 3, 2, 4, 2, 2, 2,  5, 3, 3, 4, 4, 4, 3, 2, 2, 2, 2, 3, 2,  1, 3, 2, 4, 2,  5,  1,3,2],
+  "Signal": "Regional universities face financial and operating risks"
+  },
+  {
+  "importanceArray": [4, 4, 4, 2, 4, 4, 4, 3, 3,  5, 4, 2,  5, 3, 4, 4,  5, 3, 3,  1, 4, 4, 2,  5,  5, 4, 2,  5, 2,3,4],
+  "Signal": "Schools respond to mental health challenges among youth"
+  },
+  {
+  "importanceArray": [3, 4,  5, 3,  5, 4, 4, 4, 4,  5, 4,  5,  5, 3,  5, 4, 4, 2, 3, 2, 4, 4,  5,  5, 4,  5, 3,  5, 3,3,3],
+  "Signal": "Increase in the percentage of students living in poverty"
+  },
+  {
+  "importanceArray": [4, 4, 2, 2, 4, 4, 4, 3, 2, 3, 2, 2, 4, 3,  5, 4,  5, 3,  5, 4, 3, 3, 2,  5, 3, 4, 2, 2, 4, 5,4],
+  "Signal": "Dementia as a looming health threat, cases estimated to triple and exceed 150 million by 2050"
+  },
+  {
+  "importanceArray": [4, 4, 3, 2, 3, 4, 4, 3, 2, 2, 3, 4, 3, 3,  5, 4, 3, 3, 2, 2, 2, 2, 3, 4, 3, 4, 2, 2, 2, 5,4],
+  "Signal": "Considering long COVID a disability"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 2, 3,  1, 4, 4, 4, 4,3,4,4,4, 5,4,3,4,3, 4, 4,  5, 3,  5, 2, 4, 3, 3, 4, 5,4],
+  "Signal": "Discrimination (gender, race, socioeconomic status) in health care has an adverse effect on health outcomes"
+  },
+  {
+  "importanceArray": [3, 3, 3, 2, 2,  5, 2, 3, 4, 5,2,3,3,3, 5,3, 5,3,4,  1, 3, 2, 2,  5, 4, 3, 2, 3,  1,3,4],
+  "Signal": "Dengue outbreak in urban areas"
+  },
+  {
+  "importanceArray": [3,  5, 4, 3, 3,  5, 3, 4,  5,4,4,3,4,4, 5,3,3,4,3,  1,  5, 4, 4,  5, 3, 4, 3, 3, 3, 5,4],
+  "Signal": "Efforts to combat endemic malnutrition"
+  },
+  {
+  "importanceArray": [3, 4, 3, 2, 2,  1, 2, 2, 3,2,2,2,3,3,4,3,2,4, 5, 3, 4, 3, 3, 4, 2, 3, 3, 3, 2,4,4],
+  "Signal": "Decreasing concern with adhering to COVID-19 safety regulations"
+  },
+  {
+  "importanceArray": [4, 3,  5, 2, 2, 3, 2, 3, 3, 5,2,3,2,3, 5,3,2,4,4,  1, 3, 3, 4,  5, 2, 3, 2, 3, 4, 5,4],
+  "Signal": "Increased uptake of smoking among youth heightens disease burden"
+  },
+  {
+  "importanceArray": [4, 4, 4, 2, 3, 4, 3, 3, 4, 5,4,3,4,3, 5, 5, 5,3,4,  1, 4, 4, 2,  5, 4, 3, 3, 4,  5, 5,4],
+  "Signal": "Increasing anxiety in youth"
+  },
+  {
+  "importanceArray": [4, 4, 3, 3, 4, 3, 2, 3, 3, 5,4,4,3,2, 5,3,2,3,4, 3, 4, 4, 4,  5, 2, 3, 2, 4, 3, 5,4],
+  "Signal": "Increasing demand for healthy and immunity-boosting food"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 3,  5,  5, 4,  5,4,4,4, 5,3, 5,4,4,4, 5, 3,  5, 2, 4,  5, 2,  5, 3, 3, 4, 5,2],
+  "Signal": "National hospitals run out of medication"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4, 4,  5, 2, 3,  5, 5,4, 5,4,4, 5,3, 5,4,3, 4, 3,  5, 3,  5,  5, 4, 4, 4, 4,4,4],
+  "Signal": "Need for climate resilient crops transforms traditional agriculture, nutrition and diets"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 3, 4, 4, 3, 4,4,4,3,4,3,4,4, 5,4,3,  1, 4, 2,  5,  5, 3, 3, 3,  5, 3, 5,3],
+  "Signal": "Severe shortage of physicians"
+  },
+  {
+  "importanceArray": [3, 4, 3, 3, 2, 3,  1, 3, 3, 5,2,2,4,2,4,3,2,3,2,  1, 2, 2, 2, 4, 3, 3, 2, 2, 2, 5,2],
+  "Signal": "Suicide prevention in prison"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4,  5, 4, 3, 3, 4,2,4, 5,3,3,4,3,2,3,2,  1, 2, 4, 2,  5, 2, 4, 2,  1, 4, 5,3],
+  "Signal": "The impact of heatwaves on physical and mental health"
+  },
+  {
+  "importanceArray": [4, 4, 4, 3, 3, 3, 2, 4, 4,3,4, 5,4,3, 5,4,2,4,4, 2,  5, 4, 3,  5, 2, 4, 2,  5, 3, 5,3],
+  "Signal": "Weak mainstreaming and implementation of disability friendly policies and programs"
+  },
+  {
+  "importanceArray": [ 5, 4,  5, 2, 3, 3, 2, 2,  5, 5,4, 5,3, 5,4,3,2,4,3, 4, 4, 2, 3,  5,  1, 3, 3,  5, 4,4,4],
+  "Signal": "Wicked problem of increasing non-communicable disease (NCD) prevalence"
+  },
+  {
+  "importanceArray": [ 5, 4,  1, 2, 2,  5, 2, 2, 3, 5,4, 5,3,3, 5,3,4,4,2,  1, 2, 2, 2,  5,  1, 3, 3,  5, 2,4,4],
+  "Signal": "Import dependency and unassured quality of medicinal herbs for drug production and treatment"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 4,  5, 4, 4, 4, 5,4, 5,4,4,4,4, 5,4, 5, 2,  5, 4,  5,  5, 4, 3, 3,  5, 4, 5,3],
+  "Signal": "Preparedness for future pandemics (i.e. Monkeypox?)"
+  },
+  {
+  "importanceArray": [3, 4, 2, 2, 4, 3, 2, 2,  5,2,4,4,3,3,4,3,4,3,3, 4, 3, 3, 2, 4, 4, 3, 3,  5, 2, 5,3],
+  "Signal": "Rising popularity of plant-based food"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 2, 4, 4, 4, 3,  5, 5,4,4,4,3,4,4,2,4,4, 2, 4, 4,  5,  5, 4, 4, 3, 4, 3, 5,4],
+  "Signal": "Harmful chemicals in food packaging"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 3, 3, 4, 2, 4, 4, 5,4, 5,4,3,3,4,3,4,3, 2, 4,  5,  1,  5, 2, 4, 3, 4, 4, 5,4],
+  "Signal": "Climate change effects costing up to 30% of women-headed household earnings"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 2, 3, 2, 4, 4, 5, 5, 5, 5, 5,3,4,2,4,2, 3, 4, 4,  5,  5, 2,  5, 3, 4, 3, 5,4],
+  "Signal": "Discrimination and lack of support inhibit women's desire/ability to stand for elections"
+  },
+  {
+  "importanceArray": [ 5,  5, 3, 4, 4, 4, 4, 3,  5,3,4, 5, 5,3,4,4,4,4,4,  1, 2, 4,  5,  5, 4, 4, 3, 3, 4,4,4],
+  "Signal": "Exploitation and trafficking in Special Economic Zones, especially among women"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 2, 2, 2, 2, 3, 4, 5,4,4,4,3, 5,4,4,3,3, 2, 3, 3, 4,  5, 3,  5, 3, 3, 2, 5,4],
+  "Signal": "New wave of female digital activism addressing social injustices"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 3, 3, 3, 4, 4, 4,3,4, 5,4,3, 5,3, 5,4,3,  1, 2, 4, 4,  5, 3, 3, 3,  1, 2, 5,3],
+  "Signal": "4th Industrial Revolution (digital + tech) poses threat to job security of female employees in readymade garment industry"
+  },
+  {
+  "importanceArray": [3, 4, 3, 3, 3, 4, 3, 4,  5,3,4, 5,4,2,4,4,4,3, 5, 3, 4, 2, 3,  5, 2, 4, 3, 3, 3,4,4],
+  "Signal": "New or scaled up private sector programmes to empower and upskill women entrepreneurs"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 2,  5, 3, 4, 2, 4,4,4, 5,3,3,3,4,2,3,2, 3, 3, 3,  5,  5,  5,  5, 3, 3, 3, 5,3],
+  "Signal": "Promotion of gender lens investing"
+  },
+  {
+  "importanceArray": [3, 4, 2, 2, 2, 2, 2, 2, 3, 5,4, 5,4,2,3,3,4,3,3, 4, 4, 3, 2, 4, 3, 3, 4, 3, 3, 5,3],
+  "Signal": "High level political meetings (such as Inaugural Pacific Islands Forum Women Leaders Meeting) indicative of commitment to promote and progress gender issues"
+  },
+  {
+  "importanceArray": [3, 3, 2, 2, 2, 2, 3, 3, 4, 5,4, 5,4,3, 5,3, 5,3,2, 4,  5, 4, 2, 4, 2,  5, 2, 3, 4, 5,4],
+  "Signal": "Young women entering tourism industry as micro-entrepreneurs"
+  },
+  {
+  "importanceArray": [ 5, 2, 4,  1, 3, 3,  1, 2, 3, 5,2,3,4,3, 5,3, 5,3,4,  1, 3, 3, 4, 3, 3,  5, 2, 2, 4, 5, 1],
+  "Signal": "Emergence of the four-day workweek"
+  },
+  {
+  "importanceArray": [4, 4, 4, 4,  5, 4, 2, 4,  5,3,2, 5,4,4,4,4, 5,3, 5,  1, 3, 4, 2,  5, 4, 4, 3, 4, 3,4, 1],
+  "Signal": "Exploitation of foreign domestic workers"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 3, 3, 4, 4, 4, 4,2,3, 5,3,3,3,3,4,3,4,  1,  5, 3,  5, 4, 3, 3, 2, 3, 3, 5,4],
+  "Signal": "Lack of formal channel to employ domestic workers amid increasing need"
+  },
+  {
+  "importanceArray": [4, 4, 2, 2, 4, 3,  1, 4, 3, 5,4, 5,2, 5,3,3,2,3,4, 4, 3, 3, 4, 4, 3, 4, 3, 4, 3,4,2],
+  "Signal": "Lifting of border closures post-pandemic sees economic migrants return"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4,  5,  1, 3, 3, 3, 5,4, 5,2, 5,3,4,2,3,4, 4,  5, 3, 4,  5, 3,  5, 4, 3, 3,4,3],
+  "Signal": "Realizing economic potential of demographic window of opportunity"
+  },
+  {
+  "importanceArray": [4, 3, 2, 2, 2,  1, 2, 2, 3,3,2, 5,2,3, 5,3,3,3,3, 2, 2, 3, 3, 3, 4, 4, 3, 2, 2,4,3],
+  "Signal": "The emergence of workations"
+  },
+  {
+  "importanceArray": [ 5, 3,  5, 3, 3, 3, 3, 4, 3,3,2, 5,3,4, 5,3, 5,3,2,  1,  5, 3,  1, 4, 4,  5, 2, 4, 4,3,4],
+  "Signal": "High demand for imported labor to meet growth targets, sees legalization of undocumented migrant workers"
+  },
+  {
+  "importanceArray": [4, 4, 3, 3, 2, 3, 4, 3, 4,3,2, 5,3,4,3,3,3,3,3,  5, 4, 3,  1,  5, 4, 4, 3, 3, 4,4,4],
+  "Signal": "Recovery of participation rates in the labor market"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 3, 3, 3, 3, 4, 3,4,3, 5,3,3,3,3,4,3,2, 3, 2, 4, 2, 4, 3, 4, 3, 3,  5,4,3],
+  "Signal": "Reverse migration and (re-)integration of migrants in cash economy"
+  },
+  {
+  "importanceArray": [2, 4, 2,  1, 2, 2,  1, 3, 4, 5,2, 5,3,2,4,3,2,3,2, 3, 3, 2,  1, 4, 4, 3,  1,  1, 2,3,2],
+  "Signal": "UAE and Australia select economic migrants from region into hospitality and agricultural sectors"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4, 4, 3, 3, 4, 4, 5,3, 5,3,3,3,4,4,4,3, 2,  5, 3, 4,  5, 3, 4, 2,  5, 3,4,4],
+  "Signal": "Workforce not able to drive socioeconomy recovery"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 3, 3, 3, 3, 4, 5,4, 5,3,4, 5,4,4,4,3, 4,  5, 2,  5, 4, 2, 4, 3,  5,  5, 5,4],
+  "Signal": "Workers move abroad in pursuit of higher wages"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 4, 4, 3, 2, 3, 5,2,4,3,3, 5,3, 5,3, 5, 2, 4, 3, 3, 3, 2, 4, 3,  5, 3, 5,4],
+  "Signal": "Job changes after pandemic in line with preferences"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 2, 4, 4, 3, 4, 1,3,4,3,4, 5,3, 5,4,3,  1, 2, 3,  1, 4, 4, 3, 3, 4, 4,4,4],
+  "Signal": "Increasing Illegal import of e-waste"
+  },
+  {
+  "importanceArray": [3, 4, 2, 4, 3, 4, 2, 2,  5, 5,2, 5,4,3,3,3,3,3,3, 2, 3, 4, 3, 4, 3, 3, 3, 4, 3,4,4],
+  "Signal": "COVID-19 disrupts waste management markets"
+  },
+  {
+  "importanceArray": [4, 3, 2, 4,  5,  5, 3, 4, 4,2,4, 5,4,4,3,3,4,3,3,  1, 3, 3, 4, 4, 3, 3, 3, 3,  5,4,4],
+  "Signal": "Energy demand hikes and resulting load-shedding amid heatwaves"
+  },
+  {
+  "importanceArray": [4, 3, 2, 4,  1, 3, 3, 4, 4, 5,2,4,4,2,4,3, 5,4,4,  1, 3, 3, 2, 4, 4, 3, 2, 3, 4,3,3],
+  "Signal": "Emergence of nocturnal solar panels"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 3, 4, 4, 2, 4, 5,4, 5,4,2,4,4,4,4,4, 4, 3, 4, 4,  5, 4,  5, 4, 3,  5,4,4],
+  "Signal": "Energy mix governance: private sector calls for clean energy policy increases"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 2, 4, 3, 3, 4,4,3,3,4,2, 5,3,4,4, 5, 3, 3, 3, 2,  5, 3, 3, 3, 3, 4, 5,4],
+  "Signal": "High carbon footprint of technology that powers NFTs"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4,  5,  5, 4, 3,  5, 5,4, 5,4,4,3,4,4,4,3, 4, 4, 3, 4,  5,  5, 4, 4, 3,  5,4,4],
+  "Signal": "Increasing energy intensity (consumption)"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4,  5,  5,  5, 4,  5, 5,4, 5,4, 5, 5,4,4,4,3,  5, 4,  5, 2, 4,  5,  5,  5, 3,  5,4,4],
+  "Signal": "Insufficient climate financing prevents further decarbonisation efforts despite net-zero targets"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 3, 3, 4, 4, 3,  5, 1,2,3,4,4, 5,3,3,4,2,  1, 2, 4,  1, 4, 4,  5, 3, 3, 4,4,3],
+  "Signal": "Slags and ash from thermopower station is treated only 44%, causing severe environmental pollution"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4, 2,  5, 3, 2, 4, 5,2, 5,4,4, 5,3,2,3,2,  1, 3, 4, 4, 4, 4, 4, 4, 3, 4,4,4],
+  "Signal": "Confusion between land planning and power development planning decentivises businesses from investing in renewable energy"
+  },
+  {
+  "importanceArray": [4,  5, 2, 2, 3, 4, 4, 3, 4,3,2, 5,3, 5, 5,3,2,3,3,  1, 3, 3,  1, 4, 3, 3, 2, 3,  5,4,3],
+  "Signal": "Decision to postpone China's Emission Trading System (ETS ) in other sectors (steel, non-ferrous metal, cement)"
+  },
+  {
+  "importanceArray": [3, 4, 2, 3, 2, 4, 2,  1, 4,2,4, 5,4,3, 5,3,4,3,3,  1, 3, 2, 2, 3, 4, 2,  1, 3, 4,4,3],
+  "Signal": "Falling CO2 emissions in China due to building sector slowdown and 'Zero COVID-19' policy"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4,  5, 4, 3, 3,  5,4,4, 5, 5,3, 5,3, 5,3,3,  5,  5, 3, 4, 4, 4,  5, 3, 3, 4,4,3],
+  "Signal": "Fuel crisis induces transportation-related behavioral change, i.e. electric vehicle investments, yet mismatch  charging capacity"
+  },
+  {
+  "importanceArray": [3, 4, 2,  1, 3,  5, 3, 3, 4,3,4, 5,4,3, 5,3,4,4,4,  1, 4, 2,  1, 4, 4,  1, 3, 3, 4,4,3],
+  "Signal": "Record-setting renewable energy capacity push in China"
+  },
+  {
+  "importanceArray": [4, 4, 4, 3, 2, 3, 3, 2, 4,2,3, 5,4,2, 5,3,4,4, 5,  1, 4, 3,  5, 4, 3, 4, 2, 3, 4,4,3],
+  "Signal": "Remote work to reduce oil expenditures"
+  },
+  {
+  "importanceArray": [4, 4,  5, 3,  5,  5, 4, 4,  5, 5,3, 5, 5,3, 5,4, 5,4,2, 4,  5,  5,  5,  5,  5,  5, 4, 3,  5,4,4],
+  "Signal": "Per capita plastic use rising, resulting in continuous littering and plastic rivers"
+  },
+  {
+  "importanceArray": [3, 4,  5, 2,  1, 4,  5, 2, 4, 5,2,4,3,3, 5,4,2,3,2,  1, 4,  5, 3, 4, 4, 4, 3, 3,  5,3,3],
+  "Signal": "Reducing rice food waste"
+  },
+  {
+  "importanceArray": [4,  5,  5, 2, 3,  5,  5, 4,  5, 5,4, 5, 5,3, 5,4,4,3,3, 3,  5, 4,  5,  5,  5,  5, 4, 3,  5,4,3],
+  "Signal": "Reduction in single-use packaging in favor of sustainable packaging in cities"
+  },
+  {
+  "importanceArray": [4, 4, 2, 2, 3,  5, 4, 3,  5, 5,3, 5,4,4, 5,3,4, 1,2,  1,  5, 4, 3,  5, 3,  5, 3, 4, 3,4,3],
+  "Signal": "Lowering the cost of battery storage and hydrogen in support of green investment"
+  },
+  {
+  "importanceArray": [4,  5,  5, 4,  5,  5, 3, 4,  5, 5, 1, 5,4,4, 5,3, 5,4,3, 3, 2, 4, 2,  5, 3, 4, 3, 4, 3,4,3],
+  "Signal": "Cities sinking faster than sea levels are rising"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4,  5,  5, 4, 4, 4, 5, 5, 5,4,4, 5,4,4,3,2,  1, 3, 3, 2,  5, 3,  5, 4, 4, 4,4,4],
+  "Signal": "Climate crisis makes heatwaves significantly more likely"
+  },
+  {
+  "importanceArray": [4, 4,  5, 4,  5,  5, 4, 4, 4, 5,4, 5,4,4, 5,4, 5,4,4,  5,  5, 4, 4,  5,  5,  5, 4, 4,  5, 5,4],
+  "Signal": "Extreme floods"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 3, 2,  5, 2, 2, 3, 5,4,3,4,3, 5,3,3,4,3, 4, 3, 2, 4,  5, 3,  5, 2, 4, 3,4,3],
+  "Signal": "Maladaptive tree planting"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 4,  5, 4, 3, 4,4,4, 5,4,3, 5,4,3,4,4, 2, 2,  5,  5,  5, 4,  5, 2, 4,  5, 5,4],
+  "Signal": "Overuse of plant protection chemicals negatively impact environment, health and food safety"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 4,  5, 4, 4, 4, 5,4, 5,4,4, 5,4, 5,4,4, 4, 4, 2,  5,  5,  5, 4, 3, 4,  5,4,4],
+  "Signal": "Recurring flash floods and continuous loss of fisheries resources"
+  },
+  {
+  "importanceArray": [4, 3, 2, 3, 4,  5,  5, 3,  5,4,2,4,4,4, 5,3,4,4,3,  1, 2, 4, 2,  5, 3, 4, 3, 4, 4,3,4],
+  "Signal": "Rising salt concentration in water and annual intrusion in dry season threatens local agricultural productivity"
+  },
+  {
+  "importanceArray": [ 5, 3, 2, 3,  5, 4, 4, 2, 3, 5,3, 5,4,4, 5,3,3,3,2, 4,  5, 4, 2,  5, 4, 4, 3, 4, 4,4,4],
+  "Signal": "Seeking legal protection from climate change"
+  },
+  {
+  "importanceArray": [ 5, 4,  1, 3, 4,  5, 4, 3, 4, 1, 1,2,4,3, 5,3,4,4,2,  1,  5, 3, 2,  5,  5, 4, 2, 4,  5,3,4],
+  "Signal": "Temperature spikes trigger glacial lake outburst floods"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4,  5,  5,  5, 4,  5, 5, 5, 5, 5, 5, 5,4,4,4,3, 2,  5, 3,  5,  5,  5,  5, 3,  5,  5,4,4],
+  "Signal": "Water scarcity due to drought, mismanagement and unregulated expansion of related infrastructure"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4,  5, 4,  5, 4,  5, 1,3,2, 5,4, 5,4, 5,3,4,  1, 3, 4, 2,  5, 4,  5, 3,  5, 3,4, 1],
+  "Signal": "Wildfires doubling by 2100"
+  },
+  {
+  "importanceArray": [3, 4, 4, 3, 2,  5, 4, 2, 3,2,3,2,4,3, 5,3,3,3,2,  1, 2, 3, 2, 4, 3, 3, 2,  5, 2,3,4],
+  "Signal": "Sharp increase in demand for irradiation services to preserve agricultural products post-harvest"
+  },
+  {
+  "importanceArray": [4, 4, 2, 3, 2,  5, 4, 3, 3, 1, 1, 1,4,3, 5,3,3,4,2,  1, 2, 3,  1, 4, 3,  5, 2,  5,  5,4,4],
+  "Signal": "Severe sand and dust storms"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 3,  5,  5,  5, 4, 4,3,4, 5,4, 5, 5,4, 5,4, 5, 4, 3, 3, 2,  5,  5,  5, 3,  5, 4,4,4],
+  "Signal": "Record high concentration of green house gases"
+  },
+  {
+  "importanceArray": [ 5, 4,  5, 4, 3,  5,  5, 3,  5,4,4, 5,4,3, 5,4,4,4,2, 4, 4, 3, 2,  5,  5, 4, 3, 3, 2,4,4],
+  "Signal": "DAMage control: limiting biodiversity impact of infrastructure projects"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 3, 2,  5,  5, 3, 3, 1,3, 5,4,3, 5,4,2,3,4,  1, 3, 4,  5, 4,  5, 2, 3, 3, 3,4,4],
+  "Signal": "Garment industry in Southeast Asia underperforming with regard to Paris Agreement standards"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 3, 2,  5,  5, 3, 4,4,4, 5,4,3, 5,3, 5,3,3,  1, 4, 2, 2, 4,  5, 3, 3, 3, 4,4,3],
+  "Signal": "Net-zero'ing the travel tourism value chain"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4,  1, 4,  5, 3, 3, 5,3,3, 5,3, 5,3,2,3,2,  1, 2, 4,  5,  5, 3, 3, 4, 4, 4,4,4],
+  "Signal": "Deap Sea Mining, an economic blessing and an environmental curse"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4,  5,  5,  5, 4,  5, 5,4,3, 5, 5, 5,3, 5,4,2, 2, 2, 3, 2,  5, 4, 3, 4,  5,  5,4,4],
+  "Signal": "Record high ocean temperatures, acidification and global mean levels"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4, 4,  5,  5, 3, 3, 5,4, 5,4,3, 5,3,4,3, 5,  1, 4, 4, 3,  5, 4,  5, 3, 3, 3,4,4],
+  "Signal": "Rural entrepreneurs in need of (more) support to green business"
+  },
+  {
+  "importanceArray": [ 5, 3,  5,  1, 3, 3, 2, 4, 3, 5,4, 5,4,3, 5,4,4,4,3, 4, 4, 3, 4, 4, 3, 4, 3, 4, 3,4,4],
+  "Signal": "Changing scripture of official documents to allow for digitalization"
+  },
+  {
+  "importanceArray": [4, 3, 2,  1, 2, 3, 3, 3, 4, 1,4,2,3,2,4,3,2,3, 1,  1, 2, 3,  5,  5, 3, 3,  1, 2, 2,4,4],
+  "Signal": "COVID-19 induced surge in bicycle demand"
+  },
+  {
+  "importanceArray": [4, 3, 2, 2, 3, 2, 3, 2, 2, 5,4, 1,3,2, 5,3,2,2, 1,  1, 4, 2,  5, 3, 3, 3, 2, 4, 4,3,3],
+  "Signal": "Emerging local music industry"
+  },
+  {
+  "importanceArray": [4, 4, 4, 3,  5, 3, 4, 4, 4, 5,4, 5, 5,3,4,4,2,4,3,  1, 4, 4,  5, 4,  5, 3, 2, 4, 3,4,4],
+  "Signal": "Growing societal acceptance and tolerance of LGBTQ+ community, needs, and causes"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 3, 3, 4, 2,  5,2,3, 1,4,3,3,4,4,3,3,  1, 2, 4, 3, 3, 4, 3, 2, 3, 2,4,4],
+  "Signal": "Hazing and bullying among medical health professionals"
+  },
+  {
+  "importanceArray": [ 5, 3, 3, 4, 4,  5,  5, 3,  5, 5,4, 5,4,3,4,3,3,4,3, 3, 4, 3,  5, 4,  5, 4, 4, 4, 3,4,4],
+  "Signal": "Youth awareness of and engagement in sustainable practices increasing"
+  },
+  {
+  "importanceArray": [2, 3, 2,  1, 3, 2, 2, 3, 2, 5,3,2,3,3, 5,3, 5,2,4,  1,  5, 3,  5,  5, 4, 3, 2, 4, 4,4,4],
+  "Signal": "Increasing pressure to meet (unrealistic) beauty standards"
+  },
+  {
+  "importanceArray": [3, 3, 3, 3,  5, 3, 3, 3, 4, 5,4, 5,3,4, 5,4,4,3,4,  1,  5, 4,  5, 4,  5, 3, 3, 4, 4, 5,4],
+  "Signal": "Intergenerational debates on societal values including appearances, freedom of expression and diversity"
+  },
+  {
+  "importanceArray": [ 5, 3, 2, 3, 3,  5, 3, 3,  5, 5,4,2,3, 5, 5,3,3,3,4,  1, 3, 3,  5,  5, 3, 3, 3, 4, 2,4,4],
+  "Signal": "Mistrust in health care systems"
+  },
+  {
+  "importanceArray": [4, 3, 2,  1,  1,  1,  1, 2, 2,3,4, 1,3,2, 5,2,4,3, 5,  1,  5, 3,  1, 3, 3, 3, 2, 4, 3,4,4],
+  "Signal": "NFT art as a new form of digital expression"
+  },
+  {
+  "importanceArray": [3, 3, 2,  1,  1,  1,  1,  1, 2,4,4, 1,3,3, 5,2, 5,2, 1,  1, 4, 2, 4, 3, 3, 3,  1, 4, 4,4,4],
+  "Signal": "Popularity camping increasing"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 2,  5, 4, 3, 2, 3, 5,4, 5,3,2, 5,4,4,4,3, 3, 4, 3, 4,  5, 3, 3, 2, 4,  5,4,4],
+  "Signal": "Social media promoting youth-driven ideals and innovations"
+  },
+  {
+  "importanceArray": [ 5, 2,  1,  1, 4, 3, 2, 2, 2, 5,4,2,3,4, 5,3,3,2,2,  1, 3,  1, 3,  5, 4, 3, 2, 4, 4,3,3],
+  "Signal": "Sudden re-emphasis on national languages"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 2,  5, 4, 4,  5, 5,4, 5,4, 5, 5,3,4,3,4, 2, 3, 3,  5, 4, 3, 2, 4, 3,  5, 5,3],
+  "Signal": "Expansion Chinese interests and influence in the Pacific"
+  },
+  {
+  "importanceArray": [3, 4, 3, 4, 4, 3, 3, 3, 4, 5,3, 5,3,4, 5,3,3,3,2,  1, 3, 2, 4, 4, 4, 4, 3, 3, 4, 5,2],
+  "Signal": "Decentralization through provincial elections"
+  },
+  {
+  "importanceArray": [4, 4, 4, 4, 4,  5, 4, 4,  5, 5,4, 5,4,4, 5,4, 5,4, 5,  1, 4, 3, 4,  5, 4,  5, 4, 3, 4, 5,4],
+  "Signal": "Increase of policy corruption threatens economy"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 4, 3, 4, 3, 3,4,4, 5,4,3, 5,3, 5,3,4,  1, 4, 4,  1,  5, 4,  5, 3, 3, 4,4,3],
+  "Signal": "Increased bilateral rule of law, defence and climate change cooperation"
+  },
+  {
+  "importanceArray": [ 5, 4,  5, 4,  5, 4, 3, 3, 4, 5,4, 5,4,3, 5,3, 5,4, 5,  1,  5, 4,  5, 4, 4,  5, 2, 3,  5,4,4],
+  "Signal": "Increased recognition of need to digitalize and protect citizens' right to accurate information"
+  },
+  {
+  "importanceArray": [ 5, 4,  5, 4, 4, 4, 3, 4, 4, 5,4, 5,4,4, 5,4, 5,4, 5,  1,  5, 2,  5, 4,  5,  5, 3, 3, 3,4,3],
+  "Signal": "Increasing citizen surveillance and   government crackdowns (through arrests, etc.) on criticism directed at it on social media platforms"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 3,  5,  5, 3, 3,4,4, 5,3,4, 5,3, 5,3,2,  1,  5, 3, 2,  5, 3,  5, 4, 3, 3,3,4],
+  "Signal": "Lack of capacity to govern and guide the ESG agenda, despite regulatory interventions"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 3, 3, 3, 2, 2, 3,3,2,2,3,3, 5,4, 5,3, 5,  1,  5, 2,  5,  5, 4,  5, 2, 3, 3,4,4],
+  "Signal": "New innovations and technologies for individual use (such as Ray-Ban/Meta 'Smart Glasses') present data and privacy concerns"
+  },
+  {
+  "importanceArray": [3, 4, 2, 2, 2, 3, 2, 2, 4, 5,2,4,3,2, 5,3,3,2,2,  1, 2, 2,  5, 3, 3, 3, 3, 3, 2,4,3],
+  "Signal": "Leadership change in Pacific Islands Forum Secretariat causes rift"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4,  5, 4, 3, 4,  5, 5,4, 5,3,4, 5,3,4,2, 5,  1, 4, 2,  5,  5, 3,  5, 3, 3, 3, 5,3],
+  "Signal": "New wave of political intolerance driving further societal polarization"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 3,  5, 3, 2, 4,4,4, 5,4, 5, 5,3,4,3,2,  1, 4, 4, 4, 4,  5,  5, 4, 3, 4, 5,4],
+  "Signal": "Political challenges of making carbon markets work"
+  },
+  {
+  "importanceArray": [4, 4, 4, 4, 3, 3, 3, 2, 4, 5,4,4,4,3, 5,3,2,2,3,  1, 3, 3,  5, 4, 3,  5, 2, 3, 3,4,4],
+  "Signal": "Public demands right to bail political activists"
+  },
+  {
+  "importanceArray": [ 5, 4,  5, 4, 3, 4, 3, 3, 4, 5,4, 5,3,4, 5,4,4,4, 5,  1, 4, 4,  5,  5, 3, 4, 3, 3, 3,4,4],
+  "Signal": "Public agencies struggle to implement digital transformation strategies and lack coordination in data sharing"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 2, 4, 3, 2, 3,3,4,4,3,4, 5,3, 5,3,2,  1, 2, 3,  5, 4, 4, 3, 3, 3, 4,4,4],
+  "Signal": "US expanding influence sphere in Southeast Asia, including creation of Indo-Pacific Economic Framework"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 4,  5, 3, 4,  5,4,4, 5,4,4, 5,4,4,3,4,  1, 4, 3,  5,  5, 4,  5, 4, 3, 3, 5,4],
+  "Signal": "Rising inflation, stagnant social safety budgets"
+  },
+  {
+  "importanceArray": [ 5, 3, 3, 4, 3, 4, 2, 4, 3, 5,4,4,4,3, 5,3,4,2,2,  1, 3, 3, 4, 4, 4,  5, 3, 3, 4,4,3],
+  "Signal": "Legal efforts (bills, policies) to limit powers of non-profits"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 4, 4, 3, 3, 3,  5,4,4, 5,3,4, 5,4, 5,4,4, 2, 3, 4, 4, 4, 4, 4, 3, 3, 3,4,4],
+  "Signal": "Increasing regulation of digital media platform to prevent 'misuse'"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4, 2, 3, 3, 2, 3, 5,4, 5,3,3, 5,4, 5,4, 5,  1, 4, 3, 4, 3, 3, 4, 3, 3, 4,4,4],
+  "Signal": "Emerging cross-border policies for e-commerce platforms"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4,  5,  5, 4, 4, 4, 5,4, 5,4,4, 5, 5,4,4, 5, 2, 4, 4, 4, 4, 3,  5, 4, 3, 3,4,4],
+  "Signal": "Re-allocation or cutting of humanitarian funding (away) from Asia Pacific amid Ukraine crisis"
+  },
+  {
+  "importanceArray": [4, 4, 2, 3, 3,  5, 4, 4, 3,4,4, 5,4,4, 5,3,4,3,2,  1, 4, 2, 4, 2, 4,  5, 3, 3, 3,4,3],
+  "Signal": "US-China tension over Taiwan increasing"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 3, 4, 3, 4, 3,4,4, 5,3,4, 5,3,4,4,2,  1, 3, 4, 4,  5, 3,  5, 4, 4, 4,4,4],
+  "Signal": "Geopolitical events drive renewed discourse on high dependency commodity markets and supply chains"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 3, 2, 4, 3, 3, 3, 5,4, 5,3,3,3,3,2,3,4,  1,  5, 3, 2, 3, 2,  5, 3, 4,  5,3,3],
+  "Signal": "Bond issuances might expand financing space for development"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 4,  5, 3, 3, 3,4,4, 5,3,4, 5,4,2,3,2,  1, 2, 4, 2, 3, 4,  5, 2, 4, 4,4,4],
+  "Signal": "Business environment constrained by political instability"
+  },
+  {
+  "importanceArray": [ 5, 4, 4, 3,  5, 4, 2, 3, 3, 5,4,4,3,3,4,4, 5,4,3,  1, 4, 3,  5, 3, 3,  5, 3, 4, 3,3,3],
+  "Signal": "Businesses unprepared for new personal data protection regulations"
+  },
+  {
+  "importanceArray": [4, 4, 3, 4, 3, 4, 2, 3, 4,4,4, 5,4,4, 5,3,4,3,3, 2, 2, 3, 2, 2, 4,  5, 3, 4, 3,4,4],
+  "Signal": "Call for protectionism and intervention on market prices"
+  },
+  {
+  "importanceArray": [3, 3, 2, 2, 3, 3, 2, 2,  5,2,2,2,3,2, 5,2,2,4,3,  1, 2, 3, 2, 3, 2, 2, 2, 4, 2,3,3],
+  "Signal": "Edible insects as new food export opportunity"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 3, 3, 4, 3, 3, 4, 5,4, 5,3,3, 5,4,2,3,3,  1, 4, 3, 4, 4, 2,  5, 3, 4, 3,3,4],
+  "Signal": "Export income loss after LDC graduation"
+  },
+  {
+  "importanceArray": [4, 4, 3, 2, 2, 3, 2, 3, 3,3,4,2,3,3,3,3,4,3,3,  1, 3, 3, 2, 2, 3, 3, 2, 4, 3,3,4],
+  "Signal": "Fear of tax hikes by corporations and salaried individuals"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4,  5,  5, 3, 4, 3,4,3, 5,4,3, 5,3,4,3,3, 2, 4, 3, 4, 2, 4, 4, 3, 4, 3,4,3],
+  "Signal": "Dwindling stocks and food/ oil export bans land heavy blow on (small) businesses"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 3,  5, 2, 2, 3,4,3,3,3,3, 5,3,3,3,2,  1, 3, 4,  1, 3, 4,  5, 3, 4, 4,3,4],
+  "Signal": "Foreign investors worry about new regulations on carbon reduction"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4,  5,  5, 3, 4, 3, 5,2, 5,4,3, 5,4,4,3, 5, 3, 2, 2,  1, 3,  5, 4, 4, 4, 4,4,3],
+  "Signal": "Global inflationary pressures disproportionately affect fossil-fuel dependent Small Island Development States (SIDS)"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4,  5,  5, 3, 4, 4,2,2,4,4,4, 5,3, 5,3,4,  1, 3, 4, 2, 4, 4, 4, 3, 4, 3,4,4],
+  "Signal": "Fuel shortages and rising costs of fertilizers resulting in field abandonment"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 2, 4,  5, 2, 2, 4, 5,3, 5,4,3, 5,4,4,3,2, 3, 4, 4,  1, 3,  5,  5, 4, 4, 4,4,4],
+  "Signal": "Green investment in need of automation and supply chain infrastructure"
+  },
+  {
+  "importanceArray": [3, 4, 2, 4, 4, 4, 2, 3, 4,3,3,4,4,2, 5,4,3,3,3,  1, 2, 4, 2, 4, 4, 4, 3, 4, 2,4,3],
+  "Signal": "Heavy taxing of telecom services hurts affordability and digital inclusion"
+  },
+  {
+  "importanceArray": [4, 4, 2, 3, 3, 3, 2, 2, 3,2,3,2,3,3, 5,3,3,4,3,  1, 2, 4, 4, 3, 4, 3, 2, 4, 3,3,4],
+  "Signal": "High dependence on imported raw materials reduces competitiveness of garment and textile industry"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 4,  5, 3, 4, 4, 5,3, 5,4,3,4,4,3,2,2, 3, 4, 3,  5, 3, 3, 4, 2, 4, 2,4,3],
+  "Signal": "Rising household debt, increased reliance on family and support networks"
+  },
+  {
+  "importanceArray": [ 5, 3, 4, 4,  5, 4, 3, 4,  5,4,2, 5,4,3,3,3,4,2,2, 2,  5, 2, 4, 2, 3,  5,  1, 4, 3,4,4],
+  "Signal": "Increase wealth richest during pandemic"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4, 4,  5, 4, 3, 4,2,2, 5,3,2, 5,3,3,2,2, 4, 3, 4, 3, 3, 3,  5, 3, 4, 4,4,3],
+  "Signal": "Inflation and procurement guidelines encourage reliance on local food"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4, 2, 3, 2, 3, 3,4, 1, 1,3,2,4,3,2,3,2, 2, 4, 3,  1, 2, 2, 3,  5, 4, 3,3,3],
+  "Signal": "Orange economy development supporting broad-based growth"
+  },
+  {
+  "importanceArray": [ 5, 2, 2, 3,  5, 4, 3, 3, 3, 5,3,3,4,4,3,3,2,3,3, 2,  5, 3, 3, 3, 2,  5, 4, 4, 2,4,3],
+  "Signal": "Youth bulge and high dependency rates"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 2, 3,  5, 3, 2, 3,3,2,4,3,3,4,3,2,3,3,  1, 3, 2, 2, 4,  5, 4, 4, 4,  5,3,4],
+  "Signal": "Value and investments of venture capital investments tumbling globally"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4, 2, 2, 4, 3, 3, 5,2, 5,3,3,3,3,3,3,2,  1, 2, 3,  1, 3, 4, 4, 4, 4,  5,3,4],
+  "Signal": "Underdeveloped regulatory environment and uncertain market reactions challenge investment in peer to peer lending"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 3, 3, 3, 2, 3, 3, 5,4, 5,4,4, 5,3, 5,4,4, 2,  5, 4, 4, 4, 3, 3, 3, 4, 4,3,4],
+  "Signal": "Surge in use of digital marketing platforms by youth to generate income"
+  },
+  {
+  "importanceArray": [4, 3, 3, 3, 3,  5, 3, 3, 3,4,4,4,3,3,4,4,4,3,2, 2, 2, 3, 4,  5, 2, 3, 3, 4, 2,4,3],
+  "Signal": "Strict import policies spur farmers' efforts to be less reliant on external markets"
+  },
+  {
+  "importanceArray": [3,  5, 3, 4,  5,  5, 4, 4, 4, 5,4, 5,4,3,3,4,2,3, 5, 2, 4, 3, 4,  5, 4, 4, 3, 4, 2,4,4],
+  "Signal": "Substantial GDP and employment losses due to prolonged school closures amid COVID-19"
+  },
+  {
+  "importanceArray": [3, 4, 3, 4, 3, 4, 4, 4, 3, 5,4, 5,4,3,4,3,4,3,3, 4,  5, 2, 4, 3, 3,  5, 3,  5, 2,4,4],
+  "Signal": "Slow recovery tourism sector"
+  },
+  {
+  "importanceArray": [4, 4, 3, 3, 2, 4, 3, 3, 3,3,4,3,3,3,4,3,4,4,3, 3,  5, 4, 2, 3, 3,  5, 4,  5, 2,3,4],
+  "Signal": "Slow payback period of waste-to-energy projects complicates investments"
+  },
+  {
+  "importanceArray": [ 5, 3, 2, 2, 2, 2, 2, 2, 3,3,2,3,3,2,4,3, 5,3, 5,  1, 2, 3, 3, 4, 4, 4,  1,  5,  1,4,4],
+  "Signal": "Scams hamper growth e-commerce sector"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4, 4,  5,  5, 3, 4, 5,4, 5,3,4,3,4,4,3,2, 2,  5, 2,  5,  5, 3,  5, 3,  5, 2,4,4],
+  "Signal": "Rising debt requires change in revenue and expenditure"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4,  5,  5, 3, 4, 4,2,4, 5,4, 5, 5,3,4,3, 5, 2,  5, 2, 4, 4, 4,  5, 2,  5, 2,4,4],
+  "Signal": "Record-heigh (headline) inflation"
+  },
+  {
+  "importanceArray": [ 5,  5, 3, 4, 4, 4, 3, 3, 4, 5,4, 5,4,2, 5,3, 5,3,4, 4,  5, 4, 2,  5, 2, 4, 3,  5, 4,4,4],
+  "Signal": "Private sector interest in sustainability and greening businesses"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4,  5,  5, 3, 4, 3, 5, 5, 5,4,4, 5,3, 5,4,2, 3,  5, 4, 4, 3, 2,  5, 2,  5, 4,3,4],
+  "Signal": "Fuel shortage informs higher production costs and overall inflation of goods and services"
+  },
+  {
+  "importanceArray": [3, 3, 2, 4, 3, 3, 3, 3, 3,2, 1,3,3,3,3,3,4,3, 5,  1, 4, 2, 2, 4, 4,  5, 3,  5, 3,3,4],
+  "Signal": "Crowding out of private enterprises by growing number of State Owned Enterprises across sectors"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4,  5,  5, 3, 4, 4, 5,4, 5,4, 5, 5,3,4,3,2, 4, 3, 3, 3,  5, 2,  5, 4,  5, 3,4,4],
+  "Signal": "Food price inflation attributes to increase in fertilizer prices, cost of logistics and labour shortages"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 4,  5,  5, 3, 4, 4,3,2, 5,4,3, 5,4,4,4, 5, 3,  5, 2, 3,  5, 3,  5, 3,  5, 2,4,4],
+  "Signal": "Currency inflation and exchange rates hitting record highs"
+  },
+  {
+  "importanceArray": [4,  5, 2, 4,  5,  5,  5, 4, 3, 5,3, 5,3,4,3,4,2,3,3, 2, 4, 2,  5, 4, 3, 4, 4,  5, 2,4,4],
+  "Signal": "Debt (default) distress"
+  },
+  {
+  "importanceArray": [3, 3, 2, 3, 2, 4, 3, 3, 3,3,2,3,3,3, 5,3,2,3,4,  1, 2, 2, 2, 3, 4, 2, 2,  5, 3,4,4],
+  "Signal": "Falling foreign investment in China"
+  },
+  {
+  "importanceArray": [ 5, 4, 2, 3, 4,  5, 4, 2, 3, 5,3,2,3,3, 5,3,4,3,3, 2, 3, 3, 3,  5, 4, 3, 4,  5, 2,4,4],
+  "Signal": "Domestic spending increasing despite COVID-19 and natural disasters"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4,  5, 3, 4, 2, 3,4,3, 5,4,2, 5,3,4,3,4, 3, 2, 3,  5,  5, 4,  5, 3,  5, 3,4,4],
+  "Signal": "Demand for government transparency of national reserves"
+  },
+  {
+  "importanceArray": [3, 4, 3, 4, 4,  5, 2, 3, 3,4,3, 5,4,2, 5,3, 5,2, 1, 2, 3, 3,  5, 4, 3,  5, 2,  5, 2,4,4],
+  "Signal": "Farmers call upon government to create market to sell their livestock"
+  },
+  {
+  "importanceArray": [4, 2, 3, 3, 5, 4, 3, 2, 5, 1,2,2,3,4,5,4,5,3,4,  1, 3, 3, 2, 4,  1, 3, 2, 5, 5,4,4],
+  "Signal": "AI develops own non-human language"
+  },
+  {
+  "importanceArray": [5, 4, 5, 4, 4, 3, 4, 4, 4,3,4,5,3,4,5,4,5,3,4, 2, 5, 3, 5, 4, 3, 5, 2, 5, 5,3,4],
+  "Signal": "Amid increased digitization, internet security consciousness lags behind"
+  },
+  {
+  "importanceArray": [5, 4, 3, 2, 3, 4, 3, 3, 3,4,4,5,3,3,3,3,5,3,2,  1, 5, 3, 5, 5, 4, 5, 2, 5, 4,4,4],
+  "Signal": "Automation of the service industry (such as online ordering, use of QR codes, etc.)"
+  },
+  {
+  "importanceArray": [4, 4, 2, 2, 4,  1, 3, 3, 4,4,3,3,3,2,5,3,5,3,3,  1, 5, 3, 2, 5, 3, 4, 3, 5, 5,4,4],
+  "Signal": "Blockchain improving stewardship of resources and the environment"
+  },
+  {
+  "importanceArray": [4, 3, 2, 3, 3, 4, 3, 3, 4,4,2,4,3,2,5,2,5,3,5,  1, 4, 3, 5, 4, 2, 5, 3, 5, 3,4,4],
+  "Signal": "Despite 'stablecoin' crash, cryptocurrency emerging as corresponding legalization and regulation lag behind"
+  },
+  {
+  "importanceArray": [5, 3, 2, 3, 3, 3, 3, 2, 3,2,2,3,3,3,3,3,5,3,2,  1, 5, 2, 2, 4, 2, 5, 2, 5, 3,4,4],
+  "Signal": "Individuals set up data centers to (illegally) mine cryptocurrency"
+  },
+  {
+  "importanceArray": [5, 3, 5, 2, 3, 2, 3, 3, 3,4,2,5,3,2,3,3,5,4,3,  1, 4, 2, 4, 3, 3, 5,  1, 5, 2,3,4],
+  "Signal": "Gamification and digitalisation boosting engagement of government programs"
+  },
+  {
+  "importanceArray": [3, 4, 2, 2, 3, 4, 2, 3, 3,3,4,5,3,3,4,3,5,4,5,  1, 4, 2, 3, 5, 4, 5, 2, 5, 2,4,4],
+  "Signal": "Lack of awareness and capacity leads to underusage of technology and real-time data amongst farmers"
+  },
+  {
+  "importanceArray": [4, 3, 4, 2, 5, 3, 2, 3, 5,5,3,4,3,4,4,3,5,3,2,  1, 4, 2, 3, 5, 4, 5, 2, 5, 2,4,4],
+  "Signal": "Lack of quantum-safe encryption to protect data from future quantum computers"
+  },
+  {
+  "importanceArray": [3, 3, 2, 3, 4, 3, 2, 3, 3,2,4,4,3,3,3,3,5,4,2,  1, 3, 3, 5, 5, 4, 5, 3, 5, 3,4,4],
+  "Signal": "Enhanced digital connectivity paired with deregulation promotes competition and uptake of technology"
+  },
+  {
+  "importanceArray": [5, 5, 5, 4, 3, 4, 3, 2, 3,5,4,5,4,3,5,4,4,4,2, 2, 5, 4, 5, 5, 4, 5, 4, 5, 5,4,3],
+  "Signal": "Digital transformation initiatives lack whole-of-government approach"
+  },
+  {
+  "importanceArray": [5, 4, 3, 4,  1, 4, 3, 4, 4,5,4,5,3,3,5,3,5,4,4,  1, 4, 4, 5, 5, 3, 5, 2, 5, 4,4,4],
+  "Signal": "Digital governance model needs to ensure AI acts in accordance with social norms"
+  },
+  {
+  "importanceArray": [5, 4, 3, 4, 5, 3, 3, 3, 3,5,4,5,3,4,5,4,5,3,4,  1, 5, 4, 3, 4, 3, 5, 4, 5, 4,4,4],
+  "Signal": "Digitalisation of economy for economic diversification"
+  },
+  {
+  "importanceArray": [3, 4, 2,  1, 2, 3, 2, 2, 3,2,4,2,3,3,5,3,4,3,5,  1, 4, 2,  1, 5, 4, 4, 2, 5, 3,4,4],
+  "Signal": "Commercial entities experimenting with NFTs"
+  },
+  {
+  "importanceArray": [5, 4, 2, 3, 5, 3, 2, 3, 3,5,4,3,3,3,4,3,5,2,5,  1, 5, 2, 4, 3, 4, 4, 3, 5, 4,5,3],
+  "Signal": "Central Bank explores development of digital currency"
+  },
+  {
+  "importanceArray": [5, 4, 3, 3, 3, 4, 3, 3, 3,5,4,5,4,3,4,4,5,4,4,  1, 5, 3, 2, 5, 3, 5, 4, 5, 2,4,4],
+  "Signal": "Small businesses face difficulty participating in e-logistics supply chain"
+  },
+  {
+  "importanceArray": [4, 4, 3, 3, 4, 3, 3, 4, 4,5,4,5,4,4,5,5,5,4,4,  1, 5, 3, 5, 4, 3, 5, 3, 5, 4,4,4],
+  "Signal": "Increasing availability and accessibility of high-speed broadband internet in remote areas"
+  },
+  {
+  "importanceArray": [3, 3, 2,  1, 2,  5, 2, 3, 3,4,2, 5,3,4,3,3,2,3,3, 2, 3, 3,  1, 2, 2, 2, 4, 3, 4, 5,4],
+  "Signal": "China's economic development trajectory towards the NCC scenario"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 3, 3, 4, 3,  5,2,3, 5,3,4,3,4,4,3, 5,  1, 4, 2,  5, 3, 3,  5, 3, 4, 4,4,4],
+  "Signal": "Continued congestion in capital cities"
+  },
+  {
+  "importanceArray": [3, 4, 2, 3, 3, 4, 3, 3, 3, 5,4,4,4,4,3,4,4,3,4, 3, 4, 2,  5, 2, 4,  5, 2, 4, 2,4,4],
+  "Signal": "Cross-border travel normalizing"
+  },
+  {
+  "importanceArray": [3, 4, 3, 4, 3, 3, 2, 4, 4,4,4, 5,3,3,3,3,4,2,4,  5, 4, 2,  5, 3, 2,  5,  1, 3, 2,4,3],
+  "Signal": "Dissatisfaction of roads and transport services in rural areas"
+  },
+  {
+  "importanceArray": [3, 4, 2, 3, 2, 3, 2, 3, 3, 1,2,2,3,2,4,3,4,2,2, 3,  1, 3,  1, 2, 2,  1, 2, 2, 2,2, 1],
+  "Signal": "Expansion subsidies for coffee farmers"
+  },
+  {
+  "importanceArray": [ 5, 4, 3, 4, 4, 3, 3, 4,  5, 5,4, 5,3,3,3,3,3,3,2, 2, 3, 3, 4, 4, 3,  5, 4, 3, 3,4,4],
+  "Signal": "Fiscal decentralization to strengthen governance"
+  },
+  {
+  "importanceArray": [4,  5, 2, 4,  5,  5,  5, 4,  5, 5,4,4, 5, 5, 5,4,3,3, 5, 4, 4, 4, 3,  5, 3,  5, 3, 3, 4,4,3],
+  "Signal": "Food shortage or crisis"
+  },
+  {
+  "importanceArray": [ 5,  5, 2, 4, 4, 3, 4, 4, 4, 5,4, 5,3,3, 5,3,4,3, 5, 2, 4, 3, 4, 3, 2, 4, 3, 3, 2,4,4],
+  "Signal": "Increased social media reports on social unrest and criminal activities due to economic crisis"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 3, 3, 3, 2, 3,2,3,3,3,3, 5,3,4,3,2,  1, 2, 3, 2, 4, 3,  5, 4, 3, 2,4,4],
+  "Signal": "Local businesses challenged to meet Regional Comprehensive Economic Partnership (RCEP) requirements, adapt and compete with lower priced goods from the region"
+  },
+  {
+  "importanceArray": [4, 4, 2, 4, 3, 3,  5, 3, 3, 5,3, 5,4,3, 5,3,2,2,2, 4, 2, 4,  1,  5, 4, 3, 4, 3, 2,4,4],
+  "Signal": "Minimal mention of ocean-based climate solutions in National Economic Recovery Plans"
+  },
+  {
+  "importanceArray": [3, 3, 2,  1, 2, 2, 2, 2, 3, 2, 2, 3, 3, 2, 3, 4, 4, 3, 4,  1, 2, 2, 4,  5, 3, 3,  1, 3, 2,4,3],
+  "Signal": "More and harsher convictions for drug offenders"
+  },
+  {
+  "importanceArray": [3, 3, 2, 3,  1, 4, 2,  1, 3,  1, 2,  5, 3, 2, 3, 3, 4, 3, 4,  1, 2, 2,  5, 4, 2, 4,  1, 3, 3,3,3],
+  "Signal": "Popularity marches and sit-ins disrupts cities"
+  },
+  {
+  "importanceArray": [ 5, 3, 2, 4, 4, 3, 2, 4, 4, 4, 3,  5, 3, 4,  5, 4,  5, 3, 2,  1, 4, 3,  5, 4, 4,  5, 2, 3,  5,3,3],
+  "Signal": "Rapid unplanned urbanization creating a resource and municipal facilities crunch in cities"
+  },
+  {
+  "importanceArray": [3, 4, 2, 3,  5, 4, 4, 4, 4, 2, 4, 4, 4, 4,  5, 3, 4, 3, 2,  1, 2, 4, 3, 4, 4, 2, 2, 3, 2,3,3],
+  "Signal": "Rice planting season disrupted by fuel shortages"
+  },
+  {
+  "importanceArray": [ 5, 4,  1, 3, 4, 2, 3, 3, 4, 3, 4,  5, 4, 3,  5, 3,  5, 2, 4,  1, 2, 4, 2,  5, 4,  5, 3, 3, 2,4,3],
+  "Signal": "Tourist destinations as incubators for sustainable alternatives driven by the private sector"
+  },
+  {
+  "importanceArray": [4, 3, 2, 3, 3, 2, 2, 2, 3,  5, 3,  5, 3, 2, 4, 3, 4, 2,  5, 3, 3, 2, 2, 2, 3, 4, 2, 3, 2,3,3],
+  "Signal": "Using daily flight arrival data in tourist areas to gauge socioeconomic standing"
+  },
+  {
+  "importanceArray": [4,  5, 3,  1, 4, 4, 2, 3, 3,  5, 4, 3, 3, 3, 3, 4, 2, 4, 2,  1, 4, 2,  1, 4, 3,  5,  1, 3, 2,3,3],
+  "Signal": "Underdeveloped cold chain services result in post-harvest losses"
+  }
+  ]

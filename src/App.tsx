@@ -1,6 +1,7 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import 'antd/dist/antd.css';
 import { Visualization } from './Visualization';
+import { BoxPlotViz } from './BoxPlotViz';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -195,26 +196,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Container = styled.div`
-  width: 100%;
-  max-width: 128rem;
-  margin: auto;
-`;
-
-const H1 = styled.h1`
-  margin: 3rem 0;
-  font-size: 3.6rem;
-`;
-
 const App = () => (
   <>
     <GlobalStyle />
-    <Container>
-      <H1>
-        Horizon Scanning
-      </H1>
-    </Container>
     <Visualization />
+  </>
+);
+
+export const BoxPlotApp = () => (
+  <>
+    <GlobalStyle />
+    <BoxPlotViz />
   </>
 );
 

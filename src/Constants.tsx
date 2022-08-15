@@ -3,8 +3,12 @@ export const COLORVALUES = {
   '2024-2025': '#FFCA00',
   '2022-2023': '#7EE3DB',
 };
-
 export const STEEPVCOLOR = [
+  {
+    value: 'Social',
+    bgColor: '#fff1b8',
+    textColor: '#ad6800',
+  },
   {
     value: 'Technological',
     bgColor: '#ffccc7',
@@ -14,11 +18,6 @@ export const STEEPVCOLOR = [
     value: 'Economic',
     bgColor: '#efdbff',
     textColor: '#391085',
-  },
-  {
-    value: 'Social',
-    bgColor: '#fff1b8',
-    textColor: '#ad6800',
   },
   {
     value: 'Environmental',
@@ -35,15 +34,58 @@ export const STEEPVCOLOR = [
     bgColor: '#d9f7be',
     textColor: '#237804',
   },
+];
+
+export const SSCOLOR = [
   {
-    value: 'Education',
+    value: 'Poverty and inequality',
+    bgColor: '#bae7ff',
+    textColor: '#0050b3',
+  },
+  {
+    value: 'Governance',
+    bgColor: '#d9f7be',
+    textColor: '#237804',
+  },
+  {
+    value: 'Resilience',
+    bgColor: '#ffccc7',
+    textColor: '##a8071a',
+  },
+  {
+    value: 'Environment',
+    bgColor: '#ffd6e7',
+    textColor: '#9e1068',
+  },
+  {
+    value: 'Energy',
+    bgColor: '#fff1b8',
+    textColor: '#ad6800',
+  },
+  {
+    value: 'Gender equality',
+    bgColor: '#f4ffb8',
+    textColor: '#5b8c00',
+  },
+  {
+    value: 'Digitalisation',
+    bgColor: '#efdbff',
+    textColor: '#391085',
+  },
+  {
+    value: 'Innovation',
     bgColor: '#b5f5ec',
     textColor: '#006d75',
   },
   {
-    value: 'Technology',
-    bgColor: '#bae7ff',
-    textColor: '#0050b3',
+    value: 'Development Financing',
+    bgColor: '#ffccc7',
+    textColor: '#a8071a',
+  },
+  {
+    value: 'Others',
+    bgColor: '#ffccc7',
+    textColor: '#a8071a',
   },
 ];
 
@@ -89,7 +131,7 @@ export const SDGCOLOR = [
     textColor: '#0050b3',
   },
   {
-    value: '9. Industry, Innovation and Infrastructure',
+    value: '9. Industry; Innovation and Infrastructure',
     bgColor: '#ffccc7',
     textColor: '##a8071a',
   },
@@ -124,7 +166,7 @@ export const SDGCOLOR = [
     textColor: '#0050b3',
   },
   {
-    value: '16. Peace, Justice and Strong Institutions',
+    value: '16. Peace; Justice and Strong Institutions',
     bgColor: '#bae7ff',
     textColor: '#0050b3',
   },
@@ -134,3 +176,11 @@ export const SDGCOLOR = [
     textColor: '#0050b3',
   },
 ];
+
+export const HORIZONTYPE = {
+  '2021-2022': 'Short Term',
+  '2022-2023': 'Short Term',
+  '2023-2025': 'Medium Term',
+  '2024-2025': 'Medium Term',
+  '2026-2030': 'Long Term',
+};
