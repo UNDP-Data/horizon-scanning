@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'antd/dist/antd.css';
 import { Visualization } from './Visualization';
-import { BoxPlotViz } from './BoxPlotViz';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -200,13 +199,6 @@ const App = () => (
   <>
     <GlobalStyle />
     <Visualization />
-  </>
-);
-
-export const BoxPlotApp = () => (
-  <>
-    <GlobalStyle />
-    <BoxPlotViz />
   </>
 );
 

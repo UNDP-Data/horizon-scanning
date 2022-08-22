@@ -201,26 +201,39 @@ export const ModalEl = (props: Props) => {
       <ModalBodyEl>
         <ul>
           {
-          data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
-            : (
-              <>
-                {
-                    data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
-                      <li key={i}>
-                        <a href={d} target='_blank' rel='noreferrer'>{d}</a>
-                      </li>
-                    ))
-                  }
-              </>
-            )
-        }
+            data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
+              : (
+                <>
+                  {
+                      data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                        <li key={i}>
+                          {
+                            d.substring(0, 4) === 'http'
+                              ? <a href={d} target='_blank' rel='noreferrer'>{d}</a> : <>{d}</>
+                          }
+                        </li>
+                      ))
+                    }
+                </>
+              )
+          }
           {
-          data['Sources II'] !== '' ? (
-            <li>
-              {data['Sources II']}
-            </li>
-          ) : null
-        }
+            data['Sources II'].split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
+              : (
+                <>
+                  {
+                      data.Sources.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                        <li key={i}>
+                          {
+                            d.substring(0, 4) === 'http'
+                              ? <a href={d} target='_blank' rel='noreferrer'>{d}</a> : <>{d}</>
+                          }
+                        </li>
+                      ))
+                    }
+                </>
+              )
+          }
         </ul>
       </ModalBodyEl>
     </Modal>

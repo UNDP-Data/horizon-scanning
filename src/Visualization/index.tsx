@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { Select } from 'antd';
 import { useState } from 'react';
+import uniqBy from 'lodash.uniqby';
 import { SDGCOLOR, SSCOLOR, STEEPVCOLOR } from '../Constants';
 import { CardLayout } from './CardLayout';
 import { BubbleChart } from './BubbleChart';
+import { OutcomeBarChart } from './OutcomeBarChart';
 import Data from '../Data/Signal-2022.json';
+import OutcomeData from '../Data/Outcomes.json';
 
 const SettingsEl = styled.div`
   display: flex;
@@ -66,6 +69,7 @@ const H1 = styled.h1`
 export const Visualization = () => {
   const [filteredSteep, setFilteredSteep] = useState<string>('All STEEP+V');
   const [filteredSDG, setFilteredSDG] = useState<string>('All SDGs');
+  const [outcomeCountry, setOutcomeCountry] = useState<string>('Bangladesh');
   const [filteredYear, setFilteredYear] = useState<string>('All Years');
   const [filteredSS, setFilteredSS] = useState<string>('All Signature Solutions/Enabler');
   const [filteredTheme, setFilteredTheme] = useState<string>('All Themes');
@@ -80,6 +84,7 @@ export const Visualization = () => {
   Data.forEach((d) => {
     if (d['BRH/ CO']) if (COUNTRYLIST.indexOf(d['BRH/ CO']) === -1) COUNTRYLIST.push(d['BRH/ CO']);
   });
+  const OutcomeCountries = uniqBy(OutcomeData, 'Office').map((d) => d.Office);
   return (
     <>
       <Container>
@@ -87,9 +92,9 @@ export const Visualization = () => {
           Horizon Scanning
         </H1>
         <ToggleContainer>
-          <ToggleEl selected={chartType === 'Country Bar Chart'} onClick={() => { setChartType('Country Bar Chart'); }}>Country Bar Chart</ToggleEl>
-          <ToggleEl selected={chartType === 'Bubble Chart'} onClick={() => { setChartType('Bubble Chart'); }}>Bubble Chart</ToggleEl>
-          <ToggleEl selected={chartType === 'Card View'} onClick={() => { setChartType('Card View'); }}>Card View</ToggleEl>
+          <ToggleEl selected={chartType === 'Bubble Chart'} onClick={() => { setChartType('Bubble Chart'); }}>Signal Overview</ToggleEl>
+          <ToggleEl selected={chartType === 'Country Bar Chart'} onClick={() => { setChartType('Country Bar Chart'); }}>Signal Prioritization</ToggleEl>
+          <ToggleEl selected={chartType === 'Card View'} onClick={() => { setChartType('Card View'); }}>Signal Description</ToggleEl>
         </ToggleContainer>
       </Container>
       {
@@ -109,8 +114,8 @@ export const Visualization = () => {
                 >
                   <Select.Option key='All STEEP+V'>All STEEP+V</Select.Option>
                   {
-                STEEPVCOLOR.map((d) => <Select.Option key={d.value}>{d.value}</Select.Option>)
-              }
+                    STEEPVCOLOR.map((d) => <Select.Option key={d.value}>{d.value}</Select.Option>)
+                  }
                 </Select>
               </SelectionEl>
               <SelectionEl>
@@ -180,29 +185,54 @@ export const Visualization = () => {
             </SettingsEl>
             <VizEl>
               {
-            chartType === 'Card View'
-              ? (
-                <CardLayout
-                  filteredSDG={filteredSDG}
-                  filteredSteep={filteredSteep}
-                  filteredYear={filteredYear}
-                  filteredTheme={filteredTheme}
-                  filteredSS={filteredSS}
-                />
-              )
-              : (
-                <BubbleChart
-                  filteredSDG={filteredSDG}
-                  filteredSteep={filteredSteep}
-                  filteredYear={filteredYear}
-                  filteredTheme={filteredTheme}
-                  filteredSS={filteredSS}
-                />
-              )
-          }
+                chartType === 'Card View'
+                  ? (
+                    <CardLayout
+                      filteredSDG={filteredSDG}
+                      filteredSteep={filteredSteep}
+                      filteredYear={filteredYear}
+                      filteredTheme={filteredTheme}
+                      filteredSS={filteredSS}
+                    />
+                  )
+                  : (
+                    <BubbleChart
+                      filteredSDG={filteredSDG}
+                      filteredSteep={filteredSteep}
+                      filteredYear={filteredYear}
+                      filteredTheme={filteredTheme}
+                      filteredSS={filteredSS}
+                    />
+                  )
+              }
             </VizEl>
           </>
-        ) : null
+        ) : (
+          <>
+            <SettingsEl>
+              <Select
+                className='select-box'
+                style={{ width: '100%' }}
+                placeholder='Please select'
+                defaultValue='All STEEP+V'
+                value={outcomeCountry}
+                showSearch
+                allowClear
+                onChange={(values) => { setOutcomeCountry(values); }}
+              >
+                {
+                  OutcomeCountries.map((d) => <Select.Option key={d}>{d}</Select.Option>)
+                }
+              </Select>
+            </SettingsEl>
+            <VizEl>
+              <OutcomeBarChart
+                country={outcomeCountry}
+                data={OutcomeData}
+              />
+            </VizEl>
+          </>
+        )
       }
     </>
   );
