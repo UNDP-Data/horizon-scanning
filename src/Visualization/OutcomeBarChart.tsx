@@ -173,6 +173,7 @@ export const OutcomeBarChart = (props: Props) => {
                 SDGArray.map((d, i) => (
                   <g
                     transform={`translate(${barUnit * i + 10},0)`}
+                    key={i}
                   >
                     {
                       sortBy(dataFormated.filter((el) => el.SDGsCode.indexOf(`SDG ${d}`) !== -1), 'riskScore').map((el, j) => (

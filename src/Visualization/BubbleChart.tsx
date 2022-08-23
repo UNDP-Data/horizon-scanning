@@ -27,6 +27,26 @@ const VizEl = styled.div`
   margin: auto;
 `;
 
+const ColorKeyContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+`;
+
+const ColorKeyEl = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  font-size: 1.4rem;
+`;
+
+const ColorBox = styled.div`
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.5rem;
+`;
+
 const Container = styled.div`
   width: 100%;
   max-width: 128rem;
@@ -65,6 +85,20 @@ export const BubbleChart = (props: Props) => {
   }, []);
   return (
     <Container>
+      <ColorKeyContainer>
+        <ColorKeyEl>
+          <ColorBox style={{ backgroundColor: '#CAE0EC' }} />
+          <div>
+            Signals from 2021
+          </div>
+        </ColorKeyEl>
+        <ColorKeyEl>
+          <ColorBox style={{ backgroundColor: '#4381C1' }} />
+          <div>
+            Signals from 2022
+          </div>
+        </ColorKeyEl>
+      </ColorKeyContainer>
       <VizEl>
         {
           finalData ? (
