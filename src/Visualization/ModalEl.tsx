@@ -92,7 +92,6 @@ export const ModalEl = (props: Props) => {
     setMouseClickData,
   } = props;
   return (
-
     <Modal
       visible
       title={data['Signal Title (New)']}
@@ -218,11 +217,11 @@ export const ModalEl = (props: Props) => {
               )
           }
           {
-            data['Sources II'].split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
+            data['Sources II']?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
               : (
                 <>
                   {
-                      data.Sources.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                      data['Sources II']?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
                         <li key={i}>
                           {
                             d.substring(0, 4) === 'http'

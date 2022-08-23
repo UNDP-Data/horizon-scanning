@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import SignalSDG from '../Data/SignalSDG.json';
+import sortBy from 'lodash.sortby';
+import Data from '../Data/Signal-2022.json';
+import { Tooltip } from './tooltip';
+import { ModalEl } from './ModalEl';
 
 interface DataType {
   Office: string;
@@ -56,21 +59,78 @@ const TooltipEl = styled.div<TooltipElProps>`
   transform: ${(props) => `translate(${props.horizontalAlignment === 'left' ? '-100%' : '0%'},${props.verticalAlignment === 'top' ? '-100%' : '0%'})`};
 `;
 
+const ColorKeyTitle = styled.div`
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  width: 25rem;
+  right: 0;
+`;
+
+const COLOR = ['#fdd0a2', '#fdae6b', '#fd8d3c', '#e6550d', '#a63603'];
+
+const COLORVALUES = ['1-2', '2-3', '3-4', '4-5', '5'];
+
+const FlexDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+`;
+
+const ColorKeyContainer = styled.div`
+  justify-content: flex-end;
+  width: 25rem;
+  display:flex;
+  flex-wrap: wrap;
+  margin-left: calc(100% - 25rem);
+`;
+
+const ColorKeyEl = styled.div`
+  font-size: 1.4rem;
+  text-align: center;
+`;
+
+const ColorBox = styled.div`
+  width: 5rem;
+  height: 1.2rem;
+`;
+
 export const OutcomeBarChart = (props: Props) => {
   const {
     data,
     country,
   } = props;
   const [mouseOverData, setMouseOverData] = useState<MouseOverDataType | null>(null);
+  const [signalMouseOverData, setSignalMouseOverData] = useState<any>(null);
+  const [mouseClickData, setMouseClickData] = useState<any>(null);
   const graphWidth = 1280;
   const graphHeight = 800;
   const leftPadding = 90;
   const barUnit = 70;
   const singlerbarHeight = 5;
   const OutcomeDataFiltered = data.filter((d) => d.Office === country);
+  const dataFormated = Data.map((d) => {
+    const SDGsCode = d.SDGs.split(',').map((sdg) => `SDG ${sdg.split('.')[0]}`);
+    const riskScore = d['Survey Risk (Average)'] || d['Risk score (L x I)'];
+    return { ...d, SDGsCode, riskScore };
+  });
   const SDGArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   return (
     <Container>
+      <ColorKeyContainer>
+        <ColorKeyTitle>Risk Score</ColorKeyTitle>
+        <FlexDiv>
+          {
+            COLOR.map((d, i) => (
+              <ColorKeyEl key={i}>
+                <ColorBox style={{ backgroundColor: d }} />
+                <div>{COLORVALUES[i]}</div>
+              </ColorKeyEl>
+            ))
+          }
+        </FlexDiv>
+      </ColorKeyContainer>
       <VizEl>
         <>
           <svg width='100%' viewBox={`0 0 ${graphWidth} ${graphHeight}`}>
@@ -115,25 +175,19 @@ export const OutcomeBarChart = (props: Props) => {
                     transform={`translate(${barUnit * i + 10},0)`}
                   >
                     {
-                      SignalSDG.filter((el) => el.SDGs === d).map((el, j) => (
+                      sortBy(dataFormated.filter((el) => el.SDGsCode.indexOf(`SDG ${d}`) !== -1), 'riskScore').map((el, j) => (
                         <rect
                           key={j}
                           x={0}
                           y={380 - ((j + 1) * singlerbarHeight) + 1}
+                          fill={COLOR[Math.floor(el.riskScore) - 1]}
                           width={55}
                           height={singlerbarHeight - 2}
-                          fill={mouseOverData ? mouseOverData.value === el['Signal Title (New)'] && mouseOverData.SDG === el.SDGs ? '#212121' : '#EAEAEA' : '#AAA'}
-                          onMouseOver={(event) => {
-                            setMouseOverData({
-                              SDG: el.SDGs, value: el['Signal Title (New)'], xPos: event.clientX, yPos: event.clientY,
-                            });
-                          }}
-                          onMouseMove={(event) => {
-                            setMouseOverData({
-                              SDG: el.SDGs, value: el['Signal Title (New)'], xPos: event.clientX, yPos: event.clientY,
-                            });
-                          }}
-                          onMouseLeave={() => { setMouseOverData(null); }}
+                          opacity={mouseOverData ? 0.2 : signalMouseOverData ? signalMouseOverData['Signal Title (New)'] === el['Signal Title (New)'] ? 1 : 0.2 : 1}
+                          onMouseLeave={() => { setSignalMouseOverData(null); }}
+                          onMouseOver={(event) => { setSignalMouseOverData({ ...el, xPos: event.clientX, yPos: event.clientY }); }}
+                          onClick={() => { setSignalMouseOverData(null); setMouseClickData({ ...el }); }}
+                          onMouseMove={(event) => { setSignalMouseOverData({ ...el, xPos: event.clientX, yPos: event.clientY }); }}
                         />
                       ))
                     }
@@ -170,6 +224,23 @@ export const OutcomeBarChart = (props: Props) => {
               <TooltipEl x={mouseOverData.xPos} y={mouseOverData.yPos} verticalAlignment={mouseOverData.yPos > window.innerHeight / 2 ? 'top' : 'bottom'} horizontalAlignment={mouseOverData.xPos > window.innerWidth / 2 ? 'left' : 'right'}>
                 {mouseOverData.value}
               </TooltipEl>
+            )
+              : null
+          }
+          {
+            signalMouseOverData ? (
+              <Tooltip
+                data={signalMouseOverData}
+              />
+            )
+              : null
+          }
+          {
+            mouseClickData ? (
+              <ModalEl
+                data={mouseClickData}
+                setMouseClickData={setMouseClickData}
+              />
             )
               : null
           }

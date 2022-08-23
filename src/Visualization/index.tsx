@@ -221,7 +221,7 @@ export const Visualization = () => {
                 onChange={(values) => { setOutcomeCountry(values); }}
               >
                 {
-                  OutcomeCountries.map((d) => <Select.Option key={d}>{d}</Select.Option>)
+                  OutcomeCountries.filter((d) => d !== 'RPD').map((d) => <Select.Option key={d}>{d}</Select.Option>)
                 }
               </Select>
             </SettingsEl>

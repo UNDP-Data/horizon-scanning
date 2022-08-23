@@ -27,26 +27,6 @@ const VizEl = styled.div`
   margin: auto;
 `;
 
-const ColorKeyContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-`;
-
-const ColorKeyEl = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: 2rem;
-  font-size: 1.4rem;
-`;
-
-const ColorBox = styled.div`
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-right: 0.5rem;
-`;
-
 const Container = styled.div`
   width: 100%;
   max-width: 128rem;
@@ -85,20 +65,6 @@ export const BubbleChart = (props: Props) => {
   }, []);
   return (
     <Container>
-      <ColorKeyContainer>
-        <ColorKeyEl>
-          <ColorBox style={{ backgroundColor: '#ADD8E6' }} />
-          <div>
-            Risk Score Calculated based on Survey Average
-          </div>
-        </ColorKeyEl>
-        <ColorKeyEl>
-          <ColorBox style={{ backgroundColor: '#E2856E' }} />
-          <div>
-            Risk Score Average of Likelihood and Impact
-          </div>
-        </ColorKeyEl>
-      </ColorKeyContainer>
       <VizEl>
         {
           finalData ? (
@@ -223,8 +189,8 @@ export const BubbleChart = (props: Props) => {
                         cx={d.x}
                         cy={d.y}
                         r={radius}
-                        fill={d['Survey Risk (Average)'] ? '#ADD8E6' : '#E2856E'}
-                        stroke={d['Survey Risk (Average)'] ? '#ADD8E6' : '#E2856E'}
+                        fill={d.Year === 2022 ? '#4381C1' : '#C1E0EC'}
+                        stroke={d.Year === 2022 ? '#4381C1' : '#C1E0EC'}
                         opacity={
                           mouseOverData
                             ? d['Signal Title (New)'] === mouseOverData['Signal Title (New)']
