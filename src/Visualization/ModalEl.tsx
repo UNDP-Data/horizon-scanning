@@ -190,9 +190,9 @@ export const ModalEl = (props: Props) => {
       <ModalBodyEl>
         <DivValuesEl>
           <div className='bold'>
-            Risk Score (Average)
+            {data['Survey Risk (Average)'] ? 'Risk Score based on Survey Average' : 'Risk Score Avg. of Likelihood and Impact'}
           </div>
-          <ValueSpan className='bold'>{data['Survey Risk (Average)'] ? data['Survey Risk (Average)'].toFixed(1) : 'NA'}</ValueSpan>
+          <ValueSpan className='bold'>{data['Survey Risk (Average)'] ? data['Survey Risk (Average)'].toFixed(1) : data['Risk score (L x I)']}</ValueSpan>
         </DivValuesEl>
       </ModalBodyEl>
       <HR />

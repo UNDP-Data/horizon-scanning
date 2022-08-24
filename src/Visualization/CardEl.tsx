@@ -173,7 +173,7 @@ export const CardEl = (props: Props) => {
         <HR />
         <DivValuesEl>
           <div className='bold'>
-            {data['Survey Risk (Average)'] ? 'Risk Score (Average):' : 'Risk Score (L X I)'}
+            {data['Survey Risk (Average)'] ? 'Risk Score based on Survey Average' : 'Risk Score Avg. of Likelihood and Impact'}
           </div>
           <ValueSpan className='bold'>
             {
