@@ -3,6 +3,9 @@ export const COLORVALUES = {
   '2024-2025': '#FFCA00',
   '2022-2023': '#7EE3DB',
 };
+
+export const COLORARRAY = ['#ad6800', '#237804', '#391085', '#a8071a', '#5b8c00', '#9e1068'];
+
 export const STEEPVCOLOR = [
   {
     value: 'Social',

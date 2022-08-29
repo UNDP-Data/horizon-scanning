@@ -9,6 +9,14 @@ import { OutcomeBarChart } from './OutcomeBarChart';
 import Data from '../Data/Signal-2022.json';
 import OutcomeData from '../Data/Outcomes.json';
 
+const PrioritizationSettingsEl = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 128rem;
+  margin: auto;
+  margin-bottom: 4rem;
+`;
+
 const SettingsEl = styled.div`
   display: flex;
   justify-content: space-between;
@@ -65,6 +73,41 @@ const H1 = styled.h1`
   margin: 0 1rem 0 0;
 
 `;
+
+const COLORVALUES = ['← Low', 'a', 'a', 'a', 'High →'];
+
+const FlexDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+`;
+
+const ColorKeyContainer = styled.div`
+  justify-content: flex-end;
+  width: 25rem;
+  display:flex;
+  flex-wrap: wrap;
+`;
+
+const ColorKeyEl = styled.div`
+  font-size: 1.4rem;
+`;
+
+const ColorBox = styled.div`
+  width: 5rem;
+  height: 1.2rem;
+`;
+
+const ColorKeyTitle = styled.div`
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  width: 25rem;
+  right: 0;
+`;
+
+const COLOR = ['#fdd0a2', '#fdae6b', '#fd8d3c', '#e6550d', '#a63603'];
 
 export const Visualization = () => {
   const [filteredSteep, setFilteredSteep] = useState<string>('All STEEP+V');
@@ -209,10 +252,10 @@ export const Visualization = () => {
           </>
         ) : (
           <>
-            <SettingsEl>
+            <PrioritizationSettingsEl>
               <Select
                 className='select-box'
-                style={{ width: '100%' }}
+                style={{ width: '25%' }}
                 placeholder='Please select'
                 defaultValue='All STEEP+V'
                 value={outcomeCountry}
@@ -224,7 +267,20 @@ export const Visualization = () => {
                   OutcomeCountries.filter((d) => d !== 'RPD').map((d) => <Select.Option key={d}>{d}</Select.Option>)
                 }
               </Select>
-            </SettingsEl>
+              <ColorKeyContainer>
+                <ColorKeyTitle>Risk Score</ColorKeyTitle>
+                <FlexDiv>
+                  {
+                    COLOR.map((d, i) => (
+                      <ColorKeyEl key={i}>
+                        <ColorBox style={{ backgroundColor: d }} />
+                        <div style={{ color: `${i !== 0 && i !== 4 ? '#fff' : '#000'}`, textAlign: `${i !== 4 ? 'left' : 'right'}` }}>{COLORVALUES[i]}</div>
+                      </ColorKeyEl>
+                    ))
+                  }
+                </FlexDiv>
+              </ColorKeyContainer>
+            </PrioritizationSettingsEl>
             <VizEl>
               <OutcomeBarChart
                 country={outcomeCountry}

@@ -54,3 +54,18 @@ export interface BoxPlotDataType {
   Signal: string;
   importanceArray: number[];
 }
+
+export interface OutcomeDataType {
+  Office: string;
+  SDGs: number;
+  Timeline: string;
+  'Strategic Plan Outcome': string;
+  'UNSDCF/ Programme Outcome': string;
+  'National Priorities': string;
+  'Cooperation Framework Outcome Indicator(s)': string;
+}
+
+export interface OutcomeMouseOverDataType extends OutcomeDataType {
+  xPos: number;
+  yPos: number;
+}
