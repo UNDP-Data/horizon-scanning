@@ -4,12 +4,15 @@ import {
 import { scaleLinear } from 'd3-scale';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Spin } from 'antd';
+import { Modal } from 'antd';
 import Data from '../Data/Signal-2022.json';
 import { MouseOverDataType, SignalDataType, SignalDataTypeForBubbleChart } from '../Types';
 import { Tooltip } from './tooltip';
 import { ModalEl } from './ModalEl';
 import { HORIZONTYPE } from '../Constants';
+
+import '../style/buttonStyle.css';
+import '../style/modalStyle.css';
 
 interface Props {
   filteredSDG: string;
@@ -27,24 +30,10 @@ const VizEl = styled.div`
   margin: auto;
 `;
 
-const ColorKeyContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-`;
-
-const ColorKeyEl = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: 2rem;
-  font-size: 1.4rem;
-`;
-
 const ColorBox = styled.div`
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
 `;
 
 const Container = styled.div`
@@ -65,6 +54,7 @@ export const BubbleChart = (props: Props) => {
   const [finalData, setFinalData] = useState<SignalDataTypeForBubbleChart[] | null>(null);
   const [mouseOverData, setMouseOverData] = useState<MouseOverDataType | null>(null);
   const [mouseClickData, setMouseClickData] = useState<SignalDataTypeForBubbleChart | null>(null);
+  const [showHelp, setShowHelp] = useState(false);
   const graphWidth = 1280;
   const graphHeight = 800;
   const rightPadding = 50;
@@ -85,20 +75,23 @@ export const BubbleChart = (props: Props) => {
   }, []);
   return (
     <Container>
-      <ColorKeyContainer>
-        <ColorKeyEl>
-          <ColorBox style={{ backgroundColor: '#CAE0EC' }} />
-          <div>
-            Signals from 2021
+      <div className='flex-div flex-vert-align-center margin-bottom-05 flex-space-between'>
+        <div className='flex-div flex-vert-align-center'>
+          <div className='flex-div flex-vert-align-center' style={{ gap: 0, fontSize: '0.875rem' }}>
+            <ColorBox style={{ backgroundColor: '#F49FBC' }} />
+            <div>
+              Signals from 2021
+            </div>
           </div>
-        </ColorKeyEl>
-        <ColorKeyEl>
-          <ColorBox style={{ backgroundColor: '#4381C1' }} />
-          <div>
-            Signals from 2022
+          <div className='flex-div flex-vert-align-center' style={{ gap: 0, fontSize: '0.875rem' }}>
+            <ColorBox style={{ backgroundColor: '#805D93' }} />
+            <div>
+              Signals from 2022
+            </div>
           </div>
-        </ColorKeyEl>
-      </ColorKeyContainer>
+        </div>
+        <button type='button' className='undp-button button-tertiary button-arrow' onClick={() => { setShowHelp(!showHelp); }}>How To Read</button>
+      </div>
       <VizEl>
         {
           finalData ? (
@@ -223,8 +216,8 @@ export const BubbleChart = (props: Props) => {
                         cx={d.x}
                         cy={d.y}
                         r={radius}
-                        fill={d.Year === 2022 ? '#4381C1' : '#C1E0EC'}
-                        stroke={d.Year === 2022 ? '#4381C1' : '#C1E0EC'}
+                        fill={d.Year === 2022 ? '#805D93' : '#F49FBC'}
+                        stroke={d.Year === 2022 ? '#805D93' : '#F49FBC'}
                         opacity={
                           mouseOverData
                             ? d['Signal Title (New)'] === mouseOverData['Signal Title (New)']
@@ -261,8 +254,40 @@ export const BubbleChart = (props: Props) => {
                 )
                   : null
               }
+              {
+                showHelp ? (
+                  <Modal
+                    className='undp-modal'
+                    visible
+                    title='How To Read This Chart'
+                    onOk={() => { setShowHelp(false); }}
+                    onCancel={() => { setShowHelp(false); }}
+                    width={960}
+                  >
+                    <p className='undp-typography'>
+                      Each dot represents on signal provided by colleagues.
+                      <br />
+                      <br />
+                      On the X-axis are the timelines that were given to colleagues according to which they entered signals.
+                      <br />
+                      <br />
+                      In Horizon Scanning 1.0 Short term is 2021-2022, Medium Term is 2023-2025 and Long Term is 2026-2030. Similarly, In Horizon Scanning 2.0 Short term is 2022-2023, Medium Term is 2024-2025 and Long Term is 2026-2030
+                      <br />
+                      <br />
+                      On the Y axis is the risk score given by colleagues or calculated based on the product of average likelihood and impact of the signal (attributed manually by the research team based on the signals). More than the exact number of the risk, it is the ranges that are important.
+                      <br />
+                      <br />
+                      On color is the year/round of horizon scanning exercise in which the signal was collected.
+                      <br />
+                      <br />
+                      One insight that can be drawn from this is that colleagues think there are more signals in the short term than in the long term. Additionally, there are no low risk long term signals that were identified.
+                    </p>
+                  </Modal>
+                )
+                  : null
+              }
             </>
-          ) : <Spin size='large' />
+          ) : <div className='undp-loader margin-top-09' />
         }
       </VizEl>
     </Container>

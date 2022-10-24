@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Select } from 'antd';
+import { Select, Segmented, Modal } from 'antd';
 import { useState } from 'react';
 import uniqBy from 'lodash.uniqby';
 import { SDGCOLOR, SSCOLOR, STEEPVCOLOR } from '../Constants';
@@ -9,21 +9,8 @@ import { OutcomeBarChart } from './OutcomeBarChart';
 import Data from '../Data/Signal-2022.json';
 import OutcomeData from '../Data/Outcomes.json';
 
-const PrioritizationSettingsEl = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 128rem;
-  margin: auto;
-  margin-bottom: 4rem;
-`;
-
-const SettingsEl = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 128rem;
-  margin: auto;
-  margin-bottom: 4rem;
-`;
+import '../style/segmentedStyle.css';
+import '../style/selectStyle.css';
 
 const VizEl = styled.div`
   display: flex;
@@ -33,78 +20,11 @@ const VizEl = styled.div`
   margin: auto;
 `;
 
-const SelectionEl = styled.div`
-  width: calc(20% - 2rem);
-  font-size: 1.4rem;
-`;
-
-const ToggleContainer = styled.div`
-  height: 5.2rem;
-  border: 2px solid #000;
-  display: flex;
-`;
-
-interface ToggleDataType {
-  selected: boolean;
-}
-
-const ToggleEl = styled.div<ToggleDataType>`
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 1rem 2rem;
-  align-items: center;
-  text-transform: uppercase;
-  color: ${(props) => (props.selected ? 'var(--white)' : 'var(--black-700)')};;
-  cursor: pointer;
-  background-color: ${(props) => (props.selected ? 'var(--primary-blue)' : 'var(--white)')};  
-`;
-
-const Container = styled.div`
-  display:flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 128rem;
-  margin: 3rem auto;
-  align-items: center;
-`;
-
-const H1 = styled.h1`
-  font-size: 3.6rem;
-  margin: 0 1rem 0 0;
-
-`;
-
 const COLORVALUES = ['← Low', 'a', 'a', 'a', 'High →'];
 
-const FlexDiv = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  justify-content: flex-end;
-`;
-
-const ColorKeyContainer = styled.div`
-  justify-content: flex-end;
-  width: 25rem;
-  display:flex;
-  flex-wrap: wrap;
-`;
-
-const ColorKeyEl = styled.div`
-  font-size: 1.4rem;
-`;
-
 const ColorBox = styled.div`
-  width: 5rem;
-  height: 1.2rem;
-`;
-
-const ColorKeyTitle = styled.div`
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  width: 25rem;
-  right: 0;
+  width: 3rem;
+  height: 0.75rem;
 `;
 
 const COLOR = ['#fdd0a2', '#fdae6b', '#fd8d3c', '#e6550d', '#a63603'];
@@ -116,6 +36,7 @@ export const Visualization = () => {
   const [filteredYear, setFilteredYear] = useState<string>('All Years');
   const [filteredSS, setFilteredSS] = useState<string>('All Signature Solutions/Enabler');
   const [filteredTheme, setFilteredTheme] = useState<string>('All Themes');
+  const [showHelp, setShowHelp] = useState(false);
   const [chartType, setChartType] = useState<'Bubble Chart' | 'Card View' | 'Country Bar Chart'>('Bubble Chart');
   const THEMELIST: string[] = [];
   const COUNTRYLIST: string[] = [];
@@ -130,102 +51,111 @@ export const Visualization = () => {
   const OutcomeCountries = uniqBy(OutcomeData, 'Office').map((d) => d.Office);
   return (
     <>
-      <Container>
-        <H1>
+      <div className='flex-div flex-space-between flex-vert-align-center margin-top-09 margin-bottom-09'>
+        <h2 className='undp-typography' style={{ marginBottom: 0 }}>
           Horizon Scanning
-        </H1>
-        <ToggleContainer>
-          <ToggleEl selected={chartType === 'Bubble Chart'} onClick={() => { setChartType('Bubble Chart'); }}>Signal Overview</ToggleEl>
-          <ToggleEl selected={chartType === 'Country Bar Chart'} onClick={() => { setChartType('Country Bar Chart'); }}>Signal Prioritization</ToggleEl>
-          <ToggleEl selected={chartType === 'Card View'} onClick={() => { setChartType('Card View'); }}>Signal Description</ToggleEl>
-        </ToggleContainer>
-      </Container>
+        </h2>
+        <Segmented
+          className='undp-segmented'
+          options={
+            [
+              {
+                label: 'Signal Overview',
+                value: 'Bubble Chart',
+              },
+              {
+                label: 'Signal Prioritization',
+                value: 'Country Bar Chart',
+              },
+              {
+                label: 'Signal Description',
+                value: 'Card View',
+              },
+            ]
+          }
+          onChange={(value) => { setChartType(value as 'Bubble Chart' | 'Card View' | 'Country Bar Chart'); }}
+        />
+      </div>
       {
         chartType === 'Card View' || chartType === 'Bubble Chart' ? (
           <>
-            <SettingsEl>
-              <SelectionEl>
-                <Select
-                  className='select-box'
-                  style={{ width: '100%' }}
-                  placeholder='Please select'
-                  defaultValue='All STEEP+V'
-                  value={filteredSteep}
-                  showSearch
-                  allowClear
-                  onChange={(values) => { setFilteredSteep(values || 'All STEEP+V'); }}
-                >
-                  <Select.Option key='All STEEP+V'>All STEEP+V</Select.Option>
-                  {
-                    STEEPVCOLOR.map((d) => <Select.Option key={d.value}>{d.value}</Select.Option>)
+            <div className='flex-div margin-bottom-07 flex-wrap'>
+              <Select
+                className='undp-select'
+                style={{ width: 'calc(20% - 0.8rem)' }}
+                placeholder='Please select'
+                defaultValue='All STEEP+V'
+                value={filteredSteep}
+                showSearch
+                allowClear
+                onChange={(values) => { setFilteredSteep(values || 'All STEEP+V'); }}
+                clearIcon={<div className='clearIcon' />}
+              >
+                <Select.Option className='undp-select-option' key='All STEEP+V'>All STEEP+V</Select.Option>
+                {
+                    STEEPVCOLOR.map((d) => <Select.Option className='undp-select-option' key={d.value}>{d.value}</Select.Option>)
                   }
-                </Select>
-              </SelectionEl>
-              <SelectionEl>
-                <Select
-                  className='select-box'
-                  style={{ width: '100%' }}
-                  placeholder='Please select'
-                  defaultValue='All Signature Solutions/Enabler'
-                  value={filteredSS}
-                  showSearch
-                  allowClear
-                  onChange={(values) => { setFilteredSS(values || 'All Signature Solutions/Enabler'); }}
-                >
-                  <Select.Option key='All Signature Solutions/Enabler'>All Signature Solutions/Enabler</Select.Option>
-                  {
-                SSCOLOR.map((d) => <Select.Option key={d.value}>{d.value}</Select.Option>)
-              }
-                </Select>
-              </SelectionEl>
-              <SelectionEl>
-                <Select
-                  className='select-box'
-                  style={{ width: '100%' }}
-                  placeholder='Please select'
-                  defaultValue='All SDGs'
-                  value={filteredSDG}
-                  showSearch
-                  allowClear
-                  onChange={(values) => { setFilteredSDG(values || 'All SDGs'); }}
-                >
-                  <Select.Option key='All SDGs'>All SDGs</Select.Option>
-                  {
-                SDGCOLOR.map((d) => <Select.Option key={d.value}>{d.value}</Select.Option>)
-              }
-                </Select>
-              </SelectionEl>
-              <SelectionEl>
-                <Select
-                  className='select-box'
-                  style={{ width: '100%' }}
-                  placeholder='Please select'
-                  showSearch
-                  allowClear
-                  value={filteredTheme}
-                  defaultValue='All Themes'
-                  onChange={(values) => { setFilteredTheme(values || 'All Themes'); }}
-                >
-                  <Select.Option key='All Themes'>All Themes</Select.Option>
-                  {
-                THEMELIST.map((d, i) => <Select.Option key={`${d}__${i}`}>{d}</Select.Option>)
-              }
-                </Select>
-              </SelectionEl>
-              <SelectionEl>
-                <Select
-                  className='select-box'
-                  style={{ width: '100%' }}
-                  placeholder='Please select'
-                  defaultValue='All Years'
-                  onChange={(values) => { setFilteredYear(values || 'All Years'); }}
-                >
-                  <Select.Option key='All Years'>All Years</Select.Option>
-                  <Select.Option key='2021'>2021</Select.Option>
-                  <Select.Option key='2022'>2022</Select.Option>
-                </Select>
-              </SelectionEl>
-            </SettingsEl>
+              </Select>
+              <Select
+                className='undp-select'
+                style={{ width: 'calc(20% - 0.8rem)' }}
+                placeholder='Please select'
+                defaultValue='All Signature Solutions/Enabler'
+                value={filteredSS}
+                showSearch
+                allowClear
+                onChange={(values) => { setFilteredSS(values || 'All Signature Solutions/Enabler'); }}
+                clearIcon={<div className='clearIcon' />}
+              >
+                <Select.Option className='undp-select-option' key='All Signature Solutions/Enabler'>All Signature Solutions/Enabler</Select.Option>
+                {
+                  SSCOLOR.map((d) => <Select.Option className='undp-select-option' key={d.value}>{d.value}</Select.Option>)
+                }
+              </Select>
+              <Select
+                className='undp-select'
+                style={{ width: 'calc(20% - 0.8rem)' }}
+                placeholder='Please select'
+                defaultValue='All SDGs'
+                value={filteredSDG}
+                showSearch
+                allowClear
+                onChange={(values) => { setFilteredSDG(values || 'All SDGs'); }}
+                clearIcon={<div className='clearIcon' />}
+              >
+                <Select.Option className='undp-select-option' key='All SDGs'>All SDGs</Select.Option>
+                {
+                  SDGCOLOR.map((d) => <Select.Option className='undp-select-option' key={d.value}>{d.value}</Select.Option>)
+                }
+              </Select>
+              <Select
+                className='undp-select'
+                style={{ width: 'calc(20% - 0.8rem)' }}
+                placeholder='Please select'
+                showSearch
+                allowClear
+                value={filteredTheme}
+                defaultValue='All Themes'
+                onChange={(values) => { setFilteredTheme(values || 'All Themes'); }}
+                clearIcon={<div className='clearIcon' />}
+              >
+                <Select.Option className='undp-select-option' key='All Themes'>All Themes</Select.Option>
+                {
+                  THEMELIST.map((d, i) => <Select.Option className='undp-select-option' key={`${d}__${i}`}>{d}</Select.Option>)
+                }
+              </Select>
+              <Select
+                className='undp-select'
+                style={{ width: 'calc(20% - 0.8rem)' }}
+                placeholder='Please select'
+                defaultValue='All Years'
+                onChange={(values) => { setFilteredYear(values || 'All Years'); }}
+              >
+                <Select.Option className='undp-select-option' key='All Years'>All Years</Select.Option>
+                <Select.Option className='undp-select-option' key='2021'>2021</Select.Option>
+                <Select.Option className='undp-select-option' key='2022'>2022</Select.Option>
+              </Select>
+            </div>
             <VizEl>
               {
                 chartType === 'Card View'
@@ -252,35 +182,34 @@ export const Visualization = () => {
           </>
         ) : (
           <>
-            <PrioritizationSettingsEl>
-              <Select
-                className='select-box'
-                style={{ width: '25%' }}
-                placeholder='Please select'
-                defaultValue='All STEEP+V'
-                value={outcomeCountry}
-                showSearch
-                allowClear
-                onChange={(values) => { setOutcomeCountry(values); }}
-              >
-                {
-                  OutcomeCountries.filter((d) => d !== 'RPD').map((d) => <Select.Option key={d}>{d}</Select.Option>)
-                }
-              </Select>
-              <ColorKeyContainer>
-                <ColorKeyTitle>Risk Score</ColorKeyTitle>
-                <FlexDiv>
+            <Select
+              className='undp-select margin-bottom-05'
+              placeholder='Please select'
+              defaultValue='All STEEP+V'
+              value={outcomeCountry}
+              showSearch
+              onChange={(values) => { setOutcomeCountry(values); }}
+            >
+              {
+                OutcomeCountries.filter((d) => d !== 'RPD').map((d) => <Select.Option className='undp-select-option' key={d}>{d}</Select.Option>)
+              }
+            </Select>
+            <div className='flex-div flex-space-between flex-vert-align-center margin-bottom-07 flex-wrap'>
+              <div className='flex-div flex-wert-align-center flex-wrap' style={{ width: '15rem', gap: 0 }}>
+                <p className='bold' style={{ width: '15rem', margin: 0 }}>Risk Score</p>
+                <div className='flex-div flex-wert-align-center margin-bottom-07' style={{ gap: 0 }}>
                   {
                     COLOR.map((d, i) => (
-                      <ColorKeyEl key={i}>
+                      <div style={{ fontSize: '0.875rem' }} key={i}>
                         <ColorBox style={{ backgroundColor: d }} />
                         <div style={{ color: `${i !== 0 && i !== 4 ? '#fff' : '#000'}`, textAlign: `${i !== 4 ? 'left' : 'right'}` }}>{COLORVALUES[i]}</div>
-                      </ColorKeyEl>
+                      </div>
                     ))
                   }
-                </FlexDiv>
-              </ColorKeyContainer>
-            </PrioritizationSettingsEl>
+                </div>
+              </div>
+              <button type='button' className='undp-button button-tertiary button-arrow' onClick={() => { setShowHelp(!showHelp); }}>How To Read</button>
+            </div>
             <VizEl>
               <OutcomeBarChart
                 country={outcomeCountry}
@@ -289,6 +218,44 @@ export const Visualization = () => {
             </VizEl>
           </>
         )
+      }
+      {
+        showHelp ? (
+          <Modal
+            className='undp-modal'
+            visible
+            title='How To Read This Chart'
+            onOk={() => { setShowHelp(false); }}
+            onCancel={() => { setShowHelp(false); }}
+            width={960}
+          >
+            <p className='undp-typography'>
+              This visual has two aspects – the division of signals by SDGs collected throughout the Horizon Scanning 2.0 exercise (top half) and the number of outcomes taken from the Country Programme Documents of each country categorized by SDG (bottom half).
+              <br />
+              <br />
+              On X axis, for both components are the 17 SDGs.
+              <br />
+              <br />
+              For the top half, the Y axis is the number of signals in that particular SDG. These signals were categorized to SDGs manually. One Signal can belong to multiple SDGs.
+              <br />
+              <br />
+              On color, is the risk of that signal given by the survey participants.
+              <br />
+              <br />
+              For the bottom half, the Y axis is the number of outcomes taken from the Country Programme Document of the country chosen (on filter), in an SDG. These outcomes were also categorized manually and one outcome can belong to multiple SDGs.
+              <br />
+              <br />
+              On color is the Strategic Plan document name.
+              <br />
+              <br />
+              By comparing the two aspects, insights can be drawn about the number of signals in an SDG vs the number of outcomes that country is capturing for that SDG. For example, in the case of India, no CPD focusses on SDG 9, a Development Goal that has multiple identified signals of medium to high risk.
+              <br />
+              <br />
+              From this insight, a user can then reflect if India must include more outcomes for SDG 9 in their CPD or if it is justifiable that they focus on other SDGs.
+            </p>
+          </Modal>
+        )
+          : null
       }
     </>
   );

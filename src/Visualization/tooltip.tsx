@@ -17,15 +17,15 @@ const TooltipEl = styled.div<TooltipElProps>`
   display: block;
   position: fixed;
   z-index: 10;
-  border-radius: 1rem;
+  border-radius: 5px;
   font-size: 1.4rem;
-  padding: 2rem;
-  background-color: var(--white);
-  box-shadow: 0 0 1rem rgb(0 0 0 / 15%);
+  padding: 1.24rem;
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
   word-wrap: break-word;
   top: ${(props) => (props.verticalAlignment === 'bottom' ? props.y - 40 : props.y + 40)}px;
   left: ${(props) => (props.horizontalAlignment === 'left' ? props.x - 20 : props.x + 20)}px;
-  width: 42rem;
+  width: 26.25rem;
   transform: ${(props) => `translate(${props.horizontalAlignment === 'left' ? '-100%' : '0%'},${props.verticalAlignment === 'top' ? '-100%' : '0%'})`};
 `;
 

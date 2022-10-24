@@ -5,75 +5,22 @@ import {
   COLORVALUES, SDGCOLOR, SSCOLOR, STEEPVCOLOR,
 } from '../Constants';
 
+import '../style/modalStyle.css';
+
 interface Props {
   data: SignalDataType;
   setMouseClickData: (_d: null) => void;
 }
 
-const SignalTitleEl = styled.div`
-  margin: 2rem 0 1rem 0;
-  font-size: 2.4rem;
+const HeadingEl = styled.div`
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
   font-weight: bold;
-  line-height: 2.8rem;
-`;
-
-const ModalTitleEl = styled.div`
-  margin: 2rem 0 0 0;
-  font-size: 1.8rem;
-  font-weight: bold;
-  line-height: 3rem;
-`;
-
-const ModalBodyEl = styled.div`
-  margin: 0.5rem 0 1rem 0;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-`;
-
-interface ChipElDataType {
-  bgColor?: string;
-  fontColor?:string;
-}
-
-const ChipEl = styled.div<ChipElDataType>`
-  padding: 0.5rem 1rem;
-  font-size: 1.4rem;
-  background-color: ${(props) => (props.bgColor ? props.bgColor : 'var(--blue-bg)')};
-  color: ${(props) => (props.fontColor ? props.fontColor : 'var(--black)')};
-  border-radius: 5rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-`;
-
-const FlexEl = styled.div`
-  display: flex;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  align-items: center;
-`;
-
-const DivValuesEl = styled.div`
-  display: flex;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  line-height: 1.25rem;
 `;
 
 const HR = styled.hr`
-  margin: 2rem  0 1rem 0;
-  border-top: 1px solid var(--black-100);
-`;
-
-const ValueSpan = styled.div`
-  background-color: #efdbff;
-  color: #391085;
-  text-align: center;
-  margin-left: 0.5rem;
-  padding: 0 1rem;
-  align-items: center;
-  display: flex;
-  border-radius: 3rem;
-  justify-content: center;
+  border-top: 1px solid var(--gray-300);
 `;
 
 const ButtonEl = styled.button`
@@ -93,6 +40,7 @@ export const ModalEl = (props: Props) => {
   } = props;
   return (
     <Modal
+      className='undp-modal'
       visible
       title={data['Signal Title (New)']}
       onOk={() => { setMouseClickData(null); }}
@@ -104,137 +52,148 @@ export const ModalEl = (props: Props) => {
       ]}
       width={960}
     >
-      <SignalTitleEl>{data['Signal Title (New)']}</SignalTitleEl>
-      <FlexEl>
+      <div className='flex-div flex-wrap margin-bottom-05'>
         {
-          data['STEEP+V'].split(',').map((d, i) => (
-            <ChipEl
-              key={i}
-              bgColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor}
-              fontColor={STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor}
-            >
-              {d}
-            </ChipEl>
-          ))
-        }
-        {
-        data['Key Themes'].split(',').map((d, i) => (
-          <ChipEl key={i} bgColor='#EAEAEA'>
-            {d}
-          </ChipEl>
-        ))
-      }
-      </FlexEl>
-      <ModalBodyEl>
-        {data['Signal Description']}
-      </ModalBodyEl>
-      <HR />
-      <ModalTitleEl>Horizon</ModalTitleEl>
-      <ModalBodyEl>
-        <ChipEl
-          style={{ width: 'fit-content' }}
-          bgColor={data.Horizon ? COLORVALUES[data.Horizon] : '#AAA'}
-          fontColor='var(--black)'
-        >
-          {data.Horizon ? data.Horizon : 'Horizon NA'}
-        </ChipEl>
-      </ModalBodyEl>
-      <HR />
-      <ModalTitleEl>Signature Solutions/Enablers</ModalTitleEl>
-      <ModalBodyEl>
-        <FlexEl>
-          {
-            data['Signature Solutions/ Enablers'].split(',').map((d, i) => (
-              <ChipEl
+            data['STEEP+V'].split(',').map((d, i) => (
+              <div
+                className='undp-chip'
                 key={i}
-                bgColor={SSCOLOR.findIndex((el) => el.value === d) !== -1 ? SSCOLOR[SSCOLOR.findIndex((el) => el.value === d)].bgColor : '#AAA'}
-                fontColor={SSCOLOR.findIndex((el) => el.value === d) !== -1 ? SSCOLOR[SSCOLOR.findIndex((el) => el.value === d)].textColor : 'var(--black)'}
+                style={{
+                  backgroundColor: STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#EAEAEA' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].bgColor,
+                  color: STEEPVCOLOR.findIndex((el) => el.value === d) === -1 ? '#000' : STEEPVCOLOR[STEEPVCOLOR.findIndex((el) => el.value === d)].textColor,
+                }}
               >
                 {d}
-              </ChipEl>
+              </div>
             ))
           }
-        </FlexEl>
-      </ModalBodyEl>
-      <HR />
-      <ModalTitleEl>SDGs</ModalTitleEl>
-      <ModalBodyEl>
-        <FlexEl>
-          {
+        {
+            data['Key Themes'].split(',').map((d, i) => (d !== ''
+              ? (
+                <div
+                  className='undp-chip'
+                  key={i}
+                >
+                  {d}
+                </div>
+              )
+              : null
+            ))
+          }
+      </div>
+      <p className='undp-typography'>
+        {data['Signal Description']}
+      </p>
+      <HR className='margin-top-06' />
+      <HeadingEl>Horizon</HeadingEl>
+      <div
+        className='undp-chip margin-top-03'
+        style={{
+          backgroundColor: data.Horizon ? COLORVALUES[data.Horizon] : '#AAA',
+        }}
+      >
+        {data.Horizon ? data.Horizon : 'Horizon NA'}
+      </div>
+      <HR className='margin-top-06' />
+      <HeadingEl>Signature Solutions/Enablers</HeadingEl>
+      <div className='flex-div flex-wrap margin-top-03'>
+        {
+          data['Signature Solutions/ Enablers'].split(',').map((d, i) => (d !== '' ? (
+            <div
+              key={i}
+              className='undp-chip'
+              style={{
+                backgroundColor: SSCOLOR.findIndex((el) => el.value === d) !== -1 ? SSCOLOR[SSCOLOR.findIndex((el) => el.value === d)].bgColor : '#AAA',
+                color: SSCOLOR.findIndex((el) => el.value === d) !== -1 ? SSCOLOR[SSCOLOR.findIndex((el) => el.value === d)].textColor : 'var(--black)',
+              }}
+            >
+              {d}
+            </div>
+          ) : null))
+        }
+      </div>
+      <HR className='margin-top-06' />
+      <HeadingEl>SDGs</HeadingEl>
+      <div className='flex-div flex-wrap margin-top-03'>
+        {
           data.SDGs
             ? (
               <>
                 {
                   data.SDGs.split(',').map((d, i) => (
-                    <ChipEl
+                    <div
                       key={i}
-                      bgColor={SDGCOLOR[SDGCOLOR.findIndex((el) => el.value === d)].bgColor}
-                      fontColor={SDGCOLOR[SDGCOLOR.findIndex((el) => el.value === d)].textColor}
+                      className='undp-chip'
+                      style={{
+                        backgroundColor: SDGCOLOR[SDGCOLOR.findIndex((el) => el.value === d)].bgColor,
+                        color: SDGCOLOR[SDGCOLOR.findIndex((el) => el.value === d)].textColor,
+                      }}
                     >
                       {d}
-                    </ChipEl>
+                    </div>
                   ))
                 }
               </>
             )
             : 'NA'
         }
-        </FlexEl>
-      </ModalBodyEl>
-      <HR />
-      <ModalTitleEl>Impact and Relevance to UNDP</ModalTitleEl>
-      <ModalBodyEl>
+      </div>
+      <HR className='margin-top-06' />
+      <HeadingEl>Impact and Relevance to UNDP</HeadingEl>
+      <p className='undp-typography margin-top-05'>
         {data['Impact/ Relevance UNDP']}
-      </ModalBodyEl>
-      <HR />
-      <ModalBodyEl>
-        <DivValuesEl>
-          <div className='bold'>
-            {data['Survey Risk (Average)'] ? 'Risk Score based on Survey Average' : 'Risk Score Avg. of Likelihood and Impact'}
-          </div>
-          <ValueSpan className='bold'>{data['Survey Risk (Average)'] ? data['Survey Risk (Average)'].toFixed(1) : data['Risk score (L x I)']}</ValueSpan>
-        </DivValuesEl>
-      </ModalBodyEl>
-      <HR />
-      <ModalTitleEl>Sources</ModalTitleEl>
-      <ModalBodyEl>
-        <ul>
+      </p>
+      <HR className='margin-top-06' />
+      <div className='flex-div flex-vert-align-center margin-top-06'>
+        <HeadingEl style={{ margin: 0 }}>
+          {data['Survey Risk (Average)'] ? 'Risk Score based on Survey Average' : 'Risk Score Avg. of Likelihood and Impact'}
+        </HeadingEl>
+        <div
+          className='undp-chip undp-chip-blue bold'
+        >
           {
-            data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
-              : (
-                <>
-                  {
-                      data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
-                        <li key={i}>
-                          {
-                            d.substring(0, 4) === 'http'
-                              ? <a href={d} target='_blank' rel='noreferrer'>{d}</a> : <>{d}</>
-                          }
-                        </li>
-                      ))
-                    }
-                </>
-              )
+            data['Survey Risk (Average)'] ? data['Survey Risk (Average)']?.toFixed(1) : data['Risk score (L x I)']
           }
-          {
-            data['Sources II']?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
-              : (
-                <>
-                  {
-                      data['Sources II']?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
-                        <li key={i}>
-                          {
-                            d.substring(0, 4) === 'http'
-                              ? <a href={d} target='_blank' rel='noreferrer'>{d}</a> : <>{d}</>
-                          }
-                        </li>
-                      ))
-                    }
-                </>
-              )
-          }
-        </ul>
-      </ModalBodyEl>
+        </div>
+      </div>
+      <HR className='margin-top-06' />
+      <HeadingEl>Sources</HeadingEl>
+      <ul style={{ padding: '0 0 0 1rem' }}>
+        {
+          data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
+            : (
+              <>
+                {
+                    data.Sources?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                      <li key={i}>
+                        {
+                          d.substring(0, 4) === 'http'
+                            ? <a href={d} target='_blank' rel='noreferrer' className='undp-style'>{d}</a> : <>{d}</>
+                        }
+                      </li>
+                    ))
+                  }
+              </>
+            )
+        }
+        {
+          data['Sources II']?.split('\n').filter((d) => d !== '' && d !== ' ').length === 0 ? null
+            : (
+              <>
+                {
+                    data['Sources II']?.split('\n').filter((d) => d !== '' && d !== ' ').map((d, i) => (
+                      <li key={i}>
+                        {
+                          d.substring(0, 4) === 'http'
+                            ? <a href={d} target='_blank' rel='noreferrer' className='undp-style'>{d}</a> : <>{d}</>
+                        }
+                      </li>
+                    ))
+                  }
+              </>
+            )
+        }
+      </ul>
     </Modal>
   );
 };

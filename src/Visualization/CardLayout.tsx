@@ -15,24 +15,13 @@ interface Props {
   filteredSS: string;
 }
 
-const FlexContainer = styled.div`
-  display: flex;
-  width: calc(100% + 2rem);
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 -1rem;
-`;
-
 const CardEl = styled.div`
   border-radius: 0.4rem;
   font-size: 1.4rem;
-  padding: 2rem;
-  background-color: var(--white);
-  box-shadow: 0 0 1rem rgb(0 0 0 / 5%);
-  border: 1px solid var(--black-300);
+  padding: 1.25rem;
+  background-color: var(--gray-100);
   word-wrap: break-word;
-  margin: 0 1rem 2rem 1rem;
-  width: calc(33.33% - 2rem);
+  width: calc(33.33% - 0.67rem);
   cursor: pointer;
 `;
 
@@ -52,11 +41,11 @@ export const CardLayout = (props: Props) => {
   const DataFilteredBySS = filteredSS === 'All Signature Solutions/Enabler' ? [...DataFilterByTheme] : DataFilterByTheme.filter((d) => (d['Signature Solutions/ Enablers'].split(',').indexOf(filteredSS) !== -1));
   return (
     <>
-      <FlexContainer>
+      <div className='flex-div flex-wrap'>
         {
           DataFilteredBySS.map((d, i) => <CardEl onClick={() => { setMouseClickData(d as SignalDataType); }} key={i}><Cards data={d as SignalDataType} /></CardEl>)
         }
-      </FlexContainer>
+      </div>
       {
         mouseClickData ? (
           <ModalEl

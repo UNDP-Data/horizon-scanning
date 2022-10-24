@@ -4,7 +4,7 @@ export const COLORVALUES = {
   '2022-2023': '#7EE3DB',
 };
 
-export const COLORARRAY = ['#ad6800', '#237804', '#391085', '#a8071a', '#5b8c00', '#9e1068'];
+export const COLORARRAY = ['#FFAB00', '#36B37E', '#00B8D9', '#6554C0', '#FF5630', '#0065FF'];
 
 export const STEEPVCOLOR = [
   {

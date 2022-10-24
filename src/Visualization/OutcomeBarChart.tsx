@@ -30,11 +30,9 @@ const Container = styled.div`
 const COLOR = ['#fdd0a2', '#fdae6b', '#fd8d3c', '#e6550d', '#a63603'];
 
 const OutcomeColorKeyEl = styled.div`
-  font-size: 1.4rem;
-  line-height: 1.8rem;
+  font-size: 0.875rem;
   display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const OutcomeColorKey = styled.div`
@@ -43,18 +41,15 @@ const OutcomeColorKey = styled.div`
 `;
 
 const OutcomeColorBox = styled.div`
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
-  margin-right: 0.5rem;
+  margin-right: 5px;
+  margin-top: 1px;
 `;
 
 const TextEl = styled.div`
   width: calc(100% - 2.1rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-top: 2px;
 `;
 
 export const OutcomeBarChart = (props: Props) => {
