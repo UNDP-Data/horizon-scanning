@@ -182,6 +182,7 @@ export const Visualization = () => {
           </>
         ) : (
           <>
+            <p className='label'>Select UNDP RBAP Country Office</p>
             <Select
               className='undp-select margin-bottom-05'
               placeholder='Please select'
@@ -223,7 +224,7 @@ export const Visualization = () => {
         showHelp ? (
           <Modal
             className='undp-modal'
-            visible
+            open
             title='How To Read This Chart'
             onOk={() => { setShowHelp(false); }}
             onCancel={() => { setShowHelp(false); }}
@@ -233,25 +234,24 @@ export const Visualization = () => {
               This visual has two aspects – the division of signals by SDGs collected throughout the Horizon Scanning 2.0 exercise (top half) and the number of outcomes taken from the Country Programme Documents of each country categorized by SDG (bottom half).
               <br />
               <br />
-              On X axis, for both components are the 17 SDGs.
+              <span className='bold'>X axis</span>
+              <ul>
+                <li>On the X axis, for both components, are the 17 SDGs.</li>
+              </ul>
               <br />
+              <span className='bold'>Y axis</span>
+              <ul>
+                <li>For the top half, the Y axis is the number of signals for a particular SDG. These signals were categorized to SDGs manually. One signal can belong to multiple SDGs.</li>
+                <li>For the bottom half, the Y axis is the number of outcomes taken from the Country Programme Document of the country chosen (on filter), in an SDG. These outcomes were also categorized manually and one outcome can belong to multiple SDGs.</li>
+              </ul>
               <br />
-              For the top half, the Y axis is the number of signals in that particular SDG. These signals were categorized to SDGs manually. One Signal can belong to multiple SDGs.
+              <span className='bold'>Color spectrum</span>
+              <ul>
+                <li>On the Y Axis, the color spectrum reflects the risk of that signal assigned by HS 2.0 survey participants.</li>
+                <li>For the bottom half, the colors correspond to the CPD Strategic Plan Outcomes</li>
+              </ul>
               <br />
-              <br />
-              On color, is the risk of that signal given by the survey participants.
-              <br />
-              <br />
-              For the bottom half, the Y axis is the number of outcomes taken from the Country Programme Document of the country chosen (on filter), in an SDG. These outcomes were also categorized manually and one outcome can belong to multiple SDGs.
-              <br />
-              <br />
-              On color is the Strategic Plan document name.
-              <br />
-              <br />
-              By comparing the two aspects, insights can be drawn about the number of signals in an SDG vs the number of outcomes that country is capturing for that SDG. For example, in the case of India, no CPD focusses on SDG 9, a Development Goal that has multiple identified signals of medium to high risk.
-              <br />
-              <br />
-              From this insight, a user can then reflect if India must include more outcomes for SDG 9 in their CPD or if it is justifiable that they focus on other SDGs.
+              By comparing the two aspects, insights can be drawn about the number of signals in an SDG vs the number of outcomes that country is capturing for that SDG. For example, in the case of India, SDG 9 is not referenced in the CPD. HS 2.0 collected many signals on SDG 9, with a wide risk range (low to high risk). From this insight, a user can then reflect whether the signals collected invite the inclusion of SDG 9-related outcomes in their CPD as part of adaptive planning and anticipatory governance.
             </p>
           </Modal>
         )

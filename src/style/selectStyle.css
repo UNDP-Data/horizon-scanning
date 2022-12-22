@@ -185,3 +185,7 @@
   mask: url(https://design.undp.org/static/media/arrow-blue.195b4397.svg) no-repeat left center !important;
   width: 15px !important;
 }
+
+.undp-select .ant-select-selection-search {
+  margin-inline-start: 0 !important;
+}
